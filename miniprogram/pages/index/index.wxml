@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="red-flag {{ isShowAnimation ? 'show-red-flag' : '' }}" src="../../images/icon_red_flag.png" mode="widthFix" />
+  <image class="bg" src="../../images/background.png" mode="widthFix" />
+  <view class="content">
+    <image class="img-logo {{ isShowAnimation ? 'show-logo' : '' }}" src="../../images/icon_logo.png" mode="widthFix" />
+    <view class="big-title {{ isShowAnimation ? 'show-title' : '' }}">退伍不褪色，转业不转志</view>
+    <view class="small-title {{ isShowAnimation ? 'show-title' : '' }}">协助推荐退役士兵就业</view>
+    <button class="btn input {{ isShowAnimation ? 'show-btn' : '' }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">信息填报</button>
+    <button class="btn info {{ isShowAnimation ? 'show-btn' : '' }}" catchtap="jumpInfoPage">军地集团</button>
+  </view>
+  <image class="img-tiananmen {{ isShowAnimation ? 'show-tiananmen' : '' }}" src="../../images/icon_tiananmen.png" mode="widthFix" />
+  <image class="img-column {{ isShowAnimation ? 'show-column' : '' }}" src="../../images/icon_column.png" mode="widthFix" />
+  <image class="img-land {{ isShowAnimation ? 'show-land' : '' }}" src="../../images/icon_land.png" mode="widthFix" />
+</view>

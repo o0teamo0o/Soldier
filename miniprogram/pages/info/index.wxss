@@ -1,0 +1,148 @@
+/* miniprogram/pages/info/index.wxss */
+
+.red-flag {
+  width: 80vw;
+  height: auto;
+  position: absolute;
+  top: 0rpx;
+  left: 0;
+  display: block;
+  z-index: 1;
+  -webkit-transform: translateZ(0) translateY(-100%);
+  transform: translateZ(0) translateY(-100%);
+  -webkit-transition: all 1s ease-out 0.2s;
+  transition: all 1s ease-out 0.2s;
+}
+
+.show-red-flag {
+  -webkit-transform: translateZ(0) translateY(0);
+  transform: translateZ(0) translateY(0);
+}
+
+.bg {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  bottom: 150rpx;
+  left: 0;
+  display: block;
+  z-index: 1;
+}
+
+.content {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  top: 19vh;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content>.img-logo {
+  width: 20vw;
+  height: auto;
+  margin-left: 40vw;
+  display: block;
+}
+
+.content>.big-title {
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  font-size: 55rpx;
+  font-weight: bold;
+  color: #e64340;
+  display: block;
+  margin-top: 15rpx;
+  text-shadow: 5rpx 5rpx 5rpx #ccc;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0;
+  -webkit-transition: all 1.5s ease-out 0.9s;
+  transition: all 1.5s ease-out 0.9s;
+}
+
+.content>.show-btn {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.content>.paragraph {
+  padding: 30rpx 50rpx;
+  color: #333;
+  font-weight: bold;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-out 2.5s;
+  transition: all 0.5s ease-out 2.5s;
+}
+
+.content>.show-paragraph {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.content>.btn {
+  width: 40vw;
+  border: 1rpx solid white;
+  background-color: #e64340;
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  z-index: 10;
+  box-shadow: rgb(88, 81, 81) 0 3px 6px;
+}
+
+.content>.input {
+  margin-top: 50rpx;
+}
+
+.content>.info {
+  margin-top: 50rpx;
+}
+
+.img-tiananmen {
+  width: 75vw;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 2;
+}
+
+.img-column {
+  width: 55vw;
+  height: auto;
+  position: absolute;
+  bottom: 50rpx;
+  right: 0;
+  display: block;
+  z-index: 2;
+}
+
+.img-land {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 3;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 0.5s ease-out 0.2s;
+  transition: all 0.5s ease-out 0.2s;
+}
+
+.show-land {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}

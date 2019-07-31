@@ -1,0 +1,58 @@
+/* miniprogram/pages/collect/index.wxss */
+
+.item-frame-layout {
+  background-color: white;
+}
+
+.item-frame-layout>.item-layout {
+  padding: 35rpx 0 35rpx 40rpx;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.item-frame-layout>.item-layout>.mark {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background-color: #e64340;
+  margin-right: 20rpx;
+}
+
+.item-frame-layout>.item-layout>.key {
+  color: #333;
+  width: 200rpx;
+  font-weight: bold;
+}
+
+.item-frame-layout>.item-layout>.value {
+  color: #666;
+  width: 340rpx;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  margin-right: 20rpx;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.img-arrow {
+  width: 40rpx;
+  margin-right: 20rpx;
+  height: auto;
+  display: block;
+}
+
+.btn-submit {
+  margin: 40rpx;
+  border-radius: 10rpx;
+  line-height: 90rpx;
+  color: white;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  background-color: #e64340;
+}

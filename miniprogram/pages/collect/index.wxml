@@ -1,0 +1,133 @@
+<!--miniprogram/pages/collect/index.wxml-->
+
+<view class='body'>
+  <view class="wrap flex flex-v">
+    <view class='main flex-1'>
+      <view class="item-frame-layout">
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">姓名</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的姓名" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">性别</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的性别" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">年龄</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的年龄" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">籍贯</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的籍贯" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">身高</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的身高(厘米)" type="number" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">体重</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的体重(千克)" type="number" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">学历</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的学历" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">专业</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的专业" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">联系电话</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的联系电话" type="number" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">军衔</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的军衔" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">入伍时间</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的入伍时间" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">退役时间</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的退役时间" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">意向就职区域</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的意向就职区域" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">是否是党员</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">微信号/QQ号</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的微信号/QQ号" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+      </view>
+
+      <view class="btn-submit">提 交</view>
+    </view>
+  </view>
+</view>
