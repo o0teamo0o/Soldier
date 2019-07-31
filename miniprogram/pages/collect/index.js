@@ -1,4 +1,7 @@
 // miniprogram/pages/collect/index.js
+var dateUtil = require('../../libs/dateUtil.js');
+var util = require('../../libs/util.js');
+
 Page({
 
   /**
@@ -13,6 +16,15 @@ Page({
     areaIndex: 0,
     educations: ["请选择您的学历", "初中", "中技", "高中", "中专", "大专", "本科", "硕士", "MBA", "EMBA", "博士", "其他"],
     educationIndex: 0,
+    intoDate: "请选择您的入伍时间",
+    intoStartDate: null,
+    intoEndDate: null,
+    leaveDate: "请选择您的退役时间",
+    leaveStartDate: null,
+    leaveEndDate: null,
+    isShowAddressMask: false, 
+    politicses: ["请选择政治面貌", "是", "否"],
+    politicsIndex: 0,
   },
 
   /**
@@ -26,8 +38,13 @@ Page({
       that.data.ages.push(i);
     }
 
+    that.data.intoEndDate = dateUtil.fromToday(0, "-");
+    that.data.intoStartDate = dateUtil.fromToday(-21900, "-");
+
     that.setData({
-      ages: that.data.ages
+      ages: that.data.ages,
+      intoStartDate: that.data.intoStartDate,
+      intoEndDate: that.data.intoEndDate,
     })
   },
 
@@ -52,6 +69,55 @@ Page({
   bindEducationChange: function (e) {
     this.setData({
       educationIndex: e.detail.value
+    })
+  },
+
+  bindIntoDateChange: function (e) {
+    this.setData({
+      intoDate: e.detail.value,
+      leaveStartDate: e.detail.value,
+    })
+  },
+
+  bindLeaveDateChange: function (e) {
+    this.setData({
+      leaveDate: e.detail.value
+    })
+  },
+
+  /**
+   * 显示所在区域对话框
+   */
+  showAddressPickerView: function () {
+    this.setData({
+      isShowAddressMask: true
+    })
+  },
+
+
+  /**
+   * 选择所在区域监听
+   */
+  selectAreaListener: function (e) {
+    var that = this;
+    var province = e.detail.currentTarget.dataset.province;
+    var city = e.detail.currentTarget.dataset.city;
+    var area = e.detail.currentTarget.dataset.area;
+
+    that.data.province = province;
+    that.data.city = city;
+    that.data.area = area;
+
+    this.data.address = province + "-" + city + "-" + area;
+    this.setData({
+      isShowAddressMask: false,
+      address: this.data.address
+    })
+  },
+
+  bindPoliticsChange: function (e) {
+    this.setData({
+      politicsIndex: e.detail.value
     })
   },
 

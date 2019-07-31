@@ -109,9 +109,9 @@
           <view class="mark" />
           <text class="key">入伍时间</text>
           <view class="flex-1" />
-          <picker class="value" mode="date" value="{{date}}" start="{{intoStartDate}}" end="{{intoEndDate}}" bindchange="bindDateChange">
+          <picker class="value" mode="date" value="{{intoDate}}" start="{{intoStartDate}}" end="{{intoEndDate}}" bindchange="bindIntoDateChange">
             <view class="picker">
-              当前选择: {{date}}
+              {{intoDate}}
             </view>
           </picker>
           <!-- <input class="value" placeholder="请选择您的入伍时间" disabled="true" /> -->
@@ -122,15 +122,20 @@
           <view class="mark" />
           <text class="key">退役时间</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的退役时间" disabled="true" />
+          <picker class="value" mode="date" value="{{leaveDate}}" start="{{leaveStartDate}}" end="{{leaveEndDate}}" bindchange="bindLeaveDateChange">
+            <view class="picker">
+              {{leaveDate}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请选择您的退役时间" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="showAddressPickerView">
           <view class="mark" />
           <text class="key">意向就职区域</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的意向就职区域" disabled="true" />
+          <input class="value" placeholder="请选择您的意向就职区域" value="{{address}}" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -138,7 +143,12 @@
           <view class="mark" />
           <text class="key">是否是党员</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择" disabled="true" />
+          <picker class="value" bindchange="bindPoliticsChange" value="{{politicsIndex}}" range="{{politicses}}">
+            <view class="picker">
+              {{politicses[politicsIndex]}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请选择" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -158,4 +168,5 @@
 </view>
 
 <view>
+  <area-picker show="{{isShowAddressMask}}" bind:sureSelectArea="selectAreaListener"></area-picker>
 </view>

@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "信息录入",
   "usingComponents": {
-    "popup": "/components/popup/index"
+    "popup": "/components/popup/index",
+    "area-picker": "/components/area-picker/index"
   }
 }
