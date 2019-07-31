@@ -17,7 +17,12 @@
           <view class="mark" />
           <text class="key">性别</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的性别" disabled="true" />
+          <picker class="value" bindchange="bindSexChange" value="{{sexIndex}}" range="{{sexs}}">
+            <view class="picker">
+              {{sexs[sexIndex]}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请选择您的性别" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -25,7 +30,12 @@
           <view class="mark" />
           <text class="key">年龄</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的年龄" disabled="true" />
+          <picker class="value" bindchange="bindAgeChange" value="{{ageIndex}}" range="{{ages}}">
+            <view class="picker">
+              {{ages[ageIndex]}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请选择您的年龄" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -33,7 +43,12 @@
           <view class="mark" />
           <text class="key">籍贯</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的籍贯" disabled="true" />
+          <picker class="value" bindchange="bindAreaChange" value="{{areaIndex}}" range="{{areas}}">
+            <view class="picker">
+              {{areas[areaIndex]}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请选择您的籍贯" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -57,8 +72,13 @@
           <view class="mark" />
           <text class="key">学历</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的学历" />
-          <view class="img-arrow" />
+          <picker class="value" bindchange="bindEducationChange" value="{{educationIndex}}" range="{{educations}}">
+            <view class="picker">
+              {{educations[educationIndex]}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请输入您的学历" /> -->
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
         <view class="item-layout">
@@ -89,7 +109,12 @@
           <view class="mark" />
           <text class="key">入伍时间</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的入伍时间" disabled="true" />
+          <picker class="value" mode="date" value="{{date}}" start="{{intoStartDate}}" end="{{intoEndDate}}" bindchange="bindDateChange">
+            <view class="picker">
+              当前选择: {{date}}
+            </view>
+          </picker>
+          <!-- <input class="value" placeholder="请选择您的入伍时间" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -130,4 +155,7 @@
       <view class="btn-submit">提 交</view>
     </view>
   </view>
+</view>
+
+<view>
 </view>

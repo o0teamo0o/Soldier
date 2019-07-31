@@ -5,7 +5,7 @@
 }
 
 .item-frame-layout>.item-layout {
-  padding: 35rpx 0 35rpx 40rpx;
+  padding: 0 0 0 40rpx;
   display: flex;
   align-content: center;
   align-items: center;
@@ -36,6 +36,8 @@
   -ms-text-overflow: ellipsis;
   margin-right: 20rpx;
   white-space: nowrap;
+  line-height: 120rpx;
+  height: 120rpx;
   text-align: right;
 }
 
