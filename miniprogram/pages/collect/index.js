@@ -22,7 +22,7 @@ Page({
     leaveDate: "请选择您的退役时间",
     leaveStartDate: null,
     leaveEndDate: null,
-    isShowAddressMask: false, 
+    isShowAddressMask: false,
     politicses: ["请选择政治面貌", "是", "否"],
     politicsIndex: 0,
   },
@@ -66,20 +66,20 @@ Page({
     })
   },
 
-  bindEducationChange: function (e) {
+  bindEducationChange: function(e) {
     this.setData({
       educationIndex: e.detail.value
     })
   },
 
-  bindIntoDateChange: function (e) {
+  bindIntoDateChange: function(e) {
     this.setData({
       intoDate: e.detail.value,
       leaveStartDate: e.detail.value,
     })
   },
 
-  bindLeaveDateChange: function (e) {
+  bindLeaveDateChange: function(e) {
     this.setData({
       leaveDate: e.detail.value
     })
@@ -88,7 +88,7 @@ Page({
   /**
    * 显示所在区域对话框
    */
-  showAddressPickerView: function () {
+  showAddressPickerView: function() {
     this.setData({
       isShowAddressMask: true
     })
@@ -98,7 +98,7 @@ Page({
   /**
    * 选择所在区域监听
    */
-  selectAreaListener: function (e) {
+  selectAreaListener: function(e) {
     var that = this;
     var province = e.detail.currentTarget.dataset.province;
     var city = e.detail.currentTarget.dataset.city;
@@ -115,10 +115,17 @@ Page({
     })
   },
 
-  bindPoliticsChange: function (e) {
+  bindPoliticsChange: function(e) {
     this.setData({
       politicsIndex: e.detail.value
     })
+  },
+
+  /**
+   * 跳转到身份证页面
+   */
+  jumpIDPage: function() {
+
   },
 
   /**

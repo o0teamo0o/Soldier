@@ -1,0 +1,70 @@
+<!--miniprogram/pages/collect/IDCard/index.wxml-->
+<view class='container'>
+  <view class='idcard-layout'>
+    <view class='name-title'>添加证件号码</view>
+    <view class='mark'>请填写18位有效身份证号码</view>
+
+    <view class='code-layout'>
+      <view class='bg-layout'>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[0]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[1]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[2]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[3]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[4]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[5]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[6]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[7]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[8]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[9]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[10]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[11]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[12]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[13]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[14]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[15]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[16]}}</text>
+        </view>
+        <view class='item-layout'>
+          <text class="{{isIDCardError ? 'color-error' : 'color-main'}}" wx:if="{{numList.length}}">{{numList[17]}}</text>
+        </view>
+      </view>
+      <input maxlength='18' bindinput="onInputListener" type='idcard' />
+    </view>
+    <view class='line' />
+
+  </view>
+  <view class="btn-submit bg-main" catchtap='onIDCardSubmit'>确 定</view>
+</view>

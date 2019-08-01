@@ -13,6 +13,14 @@
           <view class="img-arrow" />
         </view>
         <view class="line" />
+        <view class="item-layout" hover-class="click-hover" catchtap="jumpIDPage">
+          <view class="mark" />
+          <text class="key">身份证号</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的身份证号" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
         <view class="item-layout" hover-class="click-hover">
           <view class="mark" />
           <text class="key">性别</text>
