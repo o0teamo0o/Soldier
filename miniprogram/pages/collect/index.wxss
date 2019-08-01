@@ -18,12 +18,12 @@
   height: 15rpx;
   border-radius: 50%;
   background-color: #e64340;
-  margin-right: 20rpx;
+  margin-right: 15rpx;
 }
 
 .item-frame-layout>.item-layout>.key {
   color: #333;
-  width: 200rpx;
+  width: 215rpx;
   font-weight: bold;
 }
 
@@ -62,4 +62,31 @@
 
 .btn-submit:active {
   background-color: #e4312e;
+}
+
+
+.sex-man {
+  border: 1px solid #c5c5c5;
+  background-color: white;
+  padding: 5rpx 30rpx;
+  border-radius: 8rpx;
+  color: #c5c5c5;
+  font-size: 30rpx;
+  margin-left: 25rpx;
+}
+
+.sex-woman {
+  border: 1px solid #c5c5c5;
+  background-color: white;
+  padding: 5rpx 30rpx;
+  margin-left: 30rpx;
+  border-radius: 8rpx;
+  color: #c5c5c5;
+  font-size: 30rpx;
+}
+
+.sex-man.active,.sex-woman.active {
+  border: 1px solid #a6ffe1;
+  color: #36c58f;
+  background-color: #eafff8;
 }

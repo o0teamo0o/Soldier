@@ -13,16 +13,15 @@
           <view class="img-arrow" />
         </view>
         <view class="line" />
-        <view class="item-layout" hover-class="click-hover">
+        <view class="item-layout">
           <view class="mark" />
           <text class="key">性别</text>
           <view class="flex-1" />
-          <picker class="value" bindchange="bindSexChange" value="{{userinfo.xingbie}}" range="{{sexs}}">
-            <view class="picker">
-              {{sexs[sexIndex]}}
-            </view>
-          </picker>
-          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+          <view class='value'>
+            <text class="sex-man {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>男</text>
+            <text class="sex-woman' {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>女</text>
+          </view>
+          <view class="img-arrow" />
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover">
@@ -73,7 +72,7 @@
           <view class="mark" />
           <text class="key">身高</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的身高(厘米)" type="number" />
+          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userinfo.shengao}}" bindinput="onInputShengaoListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -81,7 +80,7 @@
           <view class="mark" />
           <text class="key">体重</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的体重(千克)" type="number" />
+          <input class="value" placeholder="请输入您的体重(千克)" value="{{userinfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -89,7 +88,7 @@
           <view class="mark" />
           <text class="key">籍贯</text>
           <view class="flex-1" />
-          <picker class="value" bindchange="bindAreaChange" value="{{areaIndex}}" range="{{areas}}">
+          <picker class="value" bindchange="bindAreaChange" value="{{userinfo.jiguan}}" range="{{areas}}">
             <view class="picker">
               {{areas[areaIndex]}}
             </view>
@@ -113,12 +112,11 @@
           <view class="mark" />
           <text class="key">是否大学生入伍</text>
           <view class="flex-1" />
-          <picker class="value" bindchange="bindPoliticsChange" value="{{politicsIndex}}" range="{{politicses}}">
-            <view class="picker">
-              {{politicses[politicsIndex]}}
-            </view>
-          </picker>
-          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+          <view class='value'>
+            <text class="sex-man {{collegeIndex == 0 ? 'active' : ''}}" bindtap="selectedCollegeListener" data-type='0'>是</text>
+            <text class="sex-woman' {{collegeIndex == 1 ? 'active' : ''}}" bindtap="selectedCollegeListener" data-type='1'>否</text>
+          </view>
+          <view class="img-arrow" />
         </view>
         <view class="line" />
         <view class="item-layout">

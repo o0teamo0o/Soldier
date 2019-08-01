@@ -9,7 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sexs: ["请选择性别", "男", "女"],
     sexIndex: 0,
     birthdayStartDate: null,
     birthdayEndDate: null,
@@ -17,6 +16,7 @@ Page({
     areaIndex: 0,
     educations: ["请选择您的学历", "初中", "中技", "高中", "中专", "大专", "本科", "硕士", "MBA", "EMBA", "博士", "其他"],
     educationIndex: 0,
+    collegeIndex: 0, //是否大学入伍 0 是 1 否
     intoDate: "请选择您的入伍时间",
     intoStartDate: null,
     intoEndDate: null,
@@ -63,11 +63,11 @@ Page({
   /**
    * 性别监听
    */
-  bindSexChange: function(e) {
+  selectedSexListener: function(e) {
     var that = this;
-    that.data.userInfo.xingbie = (e.detail.value - 1);
-    that.setData({
-      sexIndex: e.detail.value,
+    that.data.userInfo.xingbie = e.currentTarget.dataset.type;
+    this.setData({
+      sexIndex: e.currentTarget.dataset.type
     })
     console.error("user:", that.data.userInfo)
   },
@@ -93,22 +93,52 @@ Page({
   /**
    * QQ号码监听
    */
-  onInputQQListener: function (e) {
+  onInputQQListener: function(e) {
     var that = this;
     that.data.userInfo.qq = e.detail.value;
     console.error("user:", that.data.userInfo)
   },
 
+  /**
+   * 身高监听
+   */
+  onInputShengaoListener: function(e) {
+    var that = this;
+    that.data.userInfo.shengao = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 体重监听
+   */
+  onInputTizhongListener: function(e) {
+    var that = this;
+    that.data.userInfo.tizhong = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 籍贯监听
+   */
   bindAreaChange: function(e) {
+    var that = this;
+    that.data.userInfo.jiguan = that.data.areas[e.detail.value];
     this.setData({
       areaIndex: e.detail.value
     })
+    console.error("user:", that.data.userInfo)
   },
 
+  /**
+   * 学历监听
+   */
   bindEducationChange: function(e) {
+    var that = this;
+    that.data.userInfo.xueli = that.data.educations[e.detail.value];
     this.setData({
       educationIndex: e.detail.value
     })
+    console.error("user:", that.data.userInfo)
   },
 
   /**
@@ -116,10 +146,23 @@ Page({
    */
   onBirthdayDateDateChange: function(e) {
     var that = this;
-    that.data.userInfo.shengri = e.detail.value,
-      this.setData({
-        userInfo: that.data.userInfo,
-      })
+    that.data.userInfo.shengri = e.detail.value;
+    this.setData({
+      userInfo: that.data.userInfo,
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 是否大学生入伍
+   */
+  selectedCollegeListener: function(e) {
+    var that = this;
+    that.data.userInfo.daxueruwu = e.currentTarget.dataset.type;
+    this.setData({
+      collegeIndex: e.currentTarget.dataset.type
+    })
+    console.error("user:", that.data.userInfo)
   },
 
 
