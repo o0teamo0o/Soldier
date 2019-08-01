@@ -67,7 +67,7 @@ page {
 }
 
 .bg-main {
-  background-color: #55cac2;
+  background-color: #e64340;
 }
 
 .bg-main2 {

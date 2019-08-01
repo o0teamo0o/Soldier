@@ -1,5 +1,6 @@
 <!--miniprogram/pages/collect/IDCard/index.wxml-->
 <view class='container'>
+  <toast id="notify" />
   <view class='idcard-layout'>
     <view class='name-title'>添加证件号码</view>
     <view class='mark'>请填写18位有效身份证号码</view>

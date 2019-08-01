@@ -1,6 +1,7 @@
 // miniprogram/pages/collect/index.js
+const app = getApp()
 var dateUtil = require('../../libs/dateUtil.js');
-var util = require('../../libs/util.js');
+var utils = require('../../libs/util.js');
 
 Page({
 
@@ -8,10 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sexs: ["男", "女"],
+    sexs: ["请选择性别", "男", "女"],
     sexIndex: 0,
-    ages: [],
-    ageIndex: 0,
+    birthdayStartDate: null,
+    birthdayEndDate: null,
     areas: ["请选择您的籍贯", "北京", "天津", "河北", "山西", "内蒙古", "辽宁", "吉林", "黑龙江", "上海", "江苏", "浙江", "安徽", "福建", "江西", "山东", "河南", "湖北", "湖南", "广东", "广西", "海南", "重庆", "四川", "贵州", "云南", "西藏", "陕西", "甘肃", "青海", "宁夏", "新疆", "台湾", "香港", "澳门", "国外"],
     areaIndex: 0,
     educations: ["请选择您的学历", "初中", "中技", "高中", "中专", "大专", "本科", "硕士", "MBA", "EMBA", "博士", "其他"],
@@ -23,8 +24,6 @@ Page({
     leaveStartDate: null,
     leaveEndDate: null,
     isShowAddressMask: false,
-    politicses: ["请选择政治面貌", "是", "否"],
-    politicsIndex: 0,
   },
 
   /**
@@ -32,32 +31,72 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    that.data.ages = [];
-    that.data.ages.push("请选择您的年龄");
-    for (var i = 18; i < 61; i++) {
-      that.data.ages.push(i);
-    }
-
-    that.data.intoEndDate = dateUtil.fromToday(0, "-");
-    that.data.intoStartDate = dateUtil.fromToday(-21900, "-");
 
     that.setData({
-      ages: that.data.ages,
+      userInfo: app.globalData.userInfo,
+    })
+    that.data.userInfo.shengri = "请选择您的出生日期";
+
+    that.data.birthdayStartDate = dateUtil.fromToday(-36500, "-"); //100岁
+    that.data.birthdayEndDate = dateUtil.fromToday(-5110, "-"); //14岁
+
+    that.data.intoEndDate = dateUtil.fromToday(0, "-");
+    that.data.intoStartDate = dateUtil.fromToday(-21900, "-"); // 60岁
+
+    that.setData({
+      birthdayStartDate: that.data.birthdayStartDate,
+      birthdayEndDate: that.data.birthdayEndDate,
       intoStartDate: that.data.intoStartDate,
       intoEndDate: that.data.intoEndDate,
     })
   },
 
-  bindSexChange: function(e) {
-    this.setData({
-      sexIndex: e.detail.value
-    })
+  /**
+   * 姓名输入监听
+   */
+  onInputNameListener: function(e) {
+    var that = this;
+    that.data.userInfo.xingming = e.detail.value;
+    console.error("user:", that.data.userInfo)
   },
 
-  bindAgeChange: function(e) {
-    this.setData({
-      ageIndex: e.detail.value
+  /**
+   * 性别监听
+   */
+  bindSexChange: function(e) {
+    var that = this;
+    that.data.userInfo.xingbie = (e.detail.value - 1);
+    that.setData({
+      sexIndex: e.detail.value,
     })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 手机号码监听
+   */
+  onInputPhoneListener: function(e) {
+    var that = this;
+    that.data.userInfo.dianhua = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 微信号码监听
+   */
+  onInputWeixinListener: function(e) {
+    var that = this;
+    that.data.userInfo.weixin = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * QQ号码监听
+   */
+  onInputQQListener: function (e) {
+    var that = this;
+    that.data.userInfo.qq = e.detail.value;
+    console.error("user:", that.data.userInfo)
   },
 
   bindAreaChange: function(e) {
@@ -71,6 +110,18 @@ Page({
       educationIndex: e.detail.value
     })
   },
+
+  /**
+   * 出生日期变化监听
+   */
+  onBirthdayDateDateChange: function(e) {
+    var that = this;
+    that.data.userInfo.shengri = e.detail.value,
+      this.setData({
+        userInfo: that.data.userInfo,
+      })
+  },
+
 
   bindIntoDateChange: function(e) {
     this.setData({
@@ -125,7 +176,10 @@ Page({
    * 跳转到身份证页面
    */
   jumpIDPage: function() {
-
+    var that = this;
+    wx.navigateTo({
+      url: './IDCard/index',
+    })
   },
 
   /**
@@ -139,7 +193,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that = this;
 
+    that.setData({
+      userInfo: app.globalData.userInfo,
+    })
   },
 
   /**

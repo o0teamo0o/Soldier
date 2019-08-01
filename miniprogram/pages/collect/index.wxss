@@ -50,11 +50,16 @@
 
 .btn-submit {
   margin: 40rpx;
+  line-height: 100rpx;
   border-radius: 10rpx;
-  line-height: 90rpx;
   color: white;
   text-align: center;
   font-size: 34rpx;
   font-weight: bold;
   background-color: #e64340;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0 15rpx;
+}
+
+.btn-submit:active {
+  background-color: #e4312e;
 }

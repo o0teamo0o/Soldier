@@ -1,14 +1,40 @@
 //app.js
+import Notify from './components/notify/notify.js';
+
 App({
   
   globalData: {
-    userInfo: null, //微信用户信息
+    userInfo: {}, //微信用户信息
   },
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function() {},
+
+  /**
+   * 显示success日志
+   */
+  showToastSuccess: function (message) {
+    Notify({
+      text: message,
+      duration: 3000,
+      selector: '#notify',
+      backgroundColor: '#56D176'
+    });
+  },
+
+  /**
+   * 显示错误日志
+   */
+  showToastError: function (message) {
+    Notify({
+      text: message,
+      duration: 3000,
+      selector: '#notify',
+      backgroundColor: '#F24439'
+    });
+  },
 
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow

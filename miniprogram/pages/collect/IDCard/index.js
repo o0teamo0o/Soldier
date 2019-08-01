@@ -1,5 +1,7 @@
 // miniprogram/pages/collect/IDCard/index.js
+const app = getApp()
 var utils = require('../../../libs/util.js');
+import Notify from '../../../components/notify/notify.js';
 
 Page({
 
@@ -17,14 +19,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**`
    * input输入监听
    */
-  onInputListener: function (e) {
+  onInputListener: function(e) {
     var that = this;
     var value = e.detail.value;
     that.data.idNumber = value;
@@ -43,53 +45,80 @@ Page({
     })
   },
 
+  /**
+   * 身份证号码提交
+   */
+  onIDCardSubmit: function() {
+    var that = this;
+    if (utils.isEmpty(that.data.idNumber)) {
+      app.showToastError("请先输入身份证!")
+      return;
+    }
+
+    if (that.data.isIDCardError) {
+      app.showToastError("请输入正确的身份证号码!")
+      return;
+    }
+
+    if (utils.isEmpty(app.globalData.userInfo)) {
+      app.globalData.userInfo = {};
+    }
+    app.globalData.userInfo.shenfenzheng = that.data.idNumber;
+    app.globalData.userInfo.shengri = that.data.birthday;
+    app.globalData.userInfo.xingbie = that.data.sex;
+
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

@@ -9,7 +9,43 @@
           <view class="mark" />
           <text class="key">姓名</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的姓名" />
+          <input class="value" placeholder="请输入您的姓名" value="{{userinfo.xingming}}" bindinput="onInputNameListener" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">性别</text>
+          <view class="flex-1" />
+          <picker class="value" bindchange="bindSexChange" value="{{userinfo.xingbie}}" range="{{sexs}}">
+            <view class="picker">
+              {{sexs[sexIndex]}}
+            </view>
+          </picker>
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">手机号码</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的联系电话" value="{{userinfo.dianhua}}" bindinput="onInputPhoneListener" type="number" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">微信号</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的微信号" value="{{userinfo.weixin}}" bindinput="onInputWeixinListener" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">QQ号</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的QQ号" value="{{userinfo.qq}}" bindinput="onInputQQListener" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -17,46 +53,19 @@
           <view class="mark" />
           <text class="key">身份证号</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的身份证号" />
+          <input class="value" value="{{userInfo.shenfenzheng}}" placeholder="请输入您的身份证号" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover">
           <view class="mark" />
-          <text class="key">性别</text>
+          <text class="key">出生年月</text>
           <view class="flex-1" />
-          <picker class="value" bindchange="bindSexChange" value="{{sexIndex}}" range="{{sexs}}">
+          <picker class="value" mode="date" value="{{userInfo.shengri}}" start="{{birthdayStartDate}}" end="{{birthdayEndDate}}" bindchange="onBirthdayDateDateChange">
             <view class="picker">
-              {{sexs[sexIndex]}}
+              {{userInfo.shengri}}
             </view>
           </picker>
-          <!-- <input class="value" placeholder="请选择您的性别" disabled="true" /> -->
-          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
-        </view>
-        <view class="line" />
-        <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
-          <text class="key">年龄</text>
-          <view class="flex-1" />
-          <picker class="value" bindchange="bindAgeChange" value="{{ageIndex}}" range="{{ages}}">
-            <view class="picker">
-              {{ages[ageIndex]}}
-            </view>
-          </picker>
-          <!-- <input class="value" placeholder="请选择您的年龄" disabled="true" /> -->
-          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
-        </view>
-        <view class="line" />
-        <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
-          <text class="key">籍贯</text>
-          <view class="flex-1" />
-          <picker class="value" bindchange="bindAreaChange" value="{{areaIndex}}" range="{{areas}}">
-            <view class="picker">
-              {{areas[areaIndex]}}
-            </view>
-          </picker>
-          <!-- <input class="value" placeholder="请选择您的籍贯" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -76,6 +85,18 @@
           <view class="img-arrow" />
         </view>
         <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">籍贯</text>
+          <view class="flex-1" />
+          <picker class="value" bindchange="bindAreaChange" value="{{areaIndex}}" range="{{areas}}">
+            <view class="picker">
+              {{areas[areaIndex]}}
+            </view>
+          </picker>
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
         <view class="item-layout">
           <view class="mark" />
           <text class="key">学历</text>
@@ -85,31 +106,50 @@
               {{educations[educationIndex]}}
             </view>
           </picker>
-          <!-- <input class="value" placeholder="请输入您的学历" /> -->
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover">
+          <view class="mark" />
+          <text class="key">是否大学生入伍</text>
+          <view class="flex-1" />
+          <picker class="value" bindchange="bindPoliticsChange" value="{{politicsIndex}}" range="{{politicses}}">
+            <view class="picker">
+              {{politicses[politicsIndex]}}
+            </view>
+          </picker>
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
         <view class="item-layout">
           <view class="mark" />
-          <text class="key">专业</text>
+          <text class="key">在部队专业</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的专业" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
-        <view class="item-layout" hover-class="click-hover">
+        <view class="item-layout">
           <view class="mark" />
-          <text class="key">联系电话</text>
+          <text class="key">在部队特长</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的联系电话" type="number" />
+          <input class="value" placeholder="请输入您的专业" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
         <view class="item-layout">
           <view class="mark" />
-          <text class="key">军衔</text>
+          <text class="key">退役时军种</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" />
+          <input class="value" placeholder="请输入您的专业" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">退役时驻地</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的专业" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -122,7 +162,6 @@
               {{intoDate}}
             </view>
           </picker>
-          <!-- <input class="value" placeholder="请选择您的入伍时间" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -135,42 +174,44 @@
               {{leaveDate}}
             </view>
           </picker>
-          <!-- <input class="value" placeholder="请选择您的退役时间" disabled="true" /> -->
-          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
-        </view>
-        <view class="line" />
-        <view class="item-layout" hover-class="click-hover" catchtap="showAddressPickerView">
-          <view class="mark" />
-          <text class="key">意向就职区域</text>
-          <view class="flex-1" />
-          <input class="value" placeholder="请选择您的意向就职区域" value="{{address}}" disabled="true" />
-          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
-        </view>
-        <view class="line" />
-        <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
-          <text class="key">是否是党员</text>
-          <view class="flex-1" />
-          <picker class="value" bindchange="bindPoliticsChange" value="{{politicsIndex}}" range="{{politicses}}">
-            <view class="picker">
-              {{politicses[politicsIndex]}}
-            </view>
-          </picker>
-          <!-- <input class="value" placeholder="请选择" disabled="true" /> -->
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
         <view class="item-layout">
           <view class="mark" />
-          <text class="key">微信号/QQ号</text>
+          <text class="key">军衔</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的微信号/QQ号" />
+          <input class="value" placeholder="请输入您的军衔" />
           <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">现居住地</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的军衔" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">意向职业</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请输入您的军衔" />
+          <view class="img-arrow" />
+        </view>
+        <view class="line" />
+        <view class="item-layout" hover-class="click-hover" catchtap="showAddressPickerView">
+          <view class="mark" />
+          <text class="key">意向城市</text>
+          <view class="flex-1" />
+          <input class="value" placeholder="请选择您的意向就职区域" value="{{address}}" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
       </view>
 
-      <view class="btn-submit">提 交</view>
+      <view class="btn-submit bg-main">提 交</view>
     </view>
   </view>
 </view>

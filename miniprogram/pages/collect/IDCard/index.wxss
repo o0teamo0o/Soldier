@@ -55,12 +55,12 @@
   text-align: center;
   color: white;
   line-height: 100rpx;
-  border-radius: 7rpx;
+  border-radius: 10rpx;
   font-size: 34rpx;
   margin: 40rpx;
   box-shadow: rgba(0, 0, 0, 0.15) 0 0 15rpx;
 }
 
 .btn-submit:active {
-  background-color: #75b65c;
+  background-color: #e4312e;
 }
