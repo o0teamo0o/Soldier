@@ -1,1 +1,75 @@
 /* miniprogram/pages/collect/extend/index.wxss */
+
+.idcard-layout {
+  margin: 40rpx;
+}
+
+.idcard-layout.name-title {
+  color: #414141;
+  font-size: 34rpx;
+}
+
+.idcard-layout .mark {
+  font-size: 26rpx;
+  color: #747474;
+}
+
+.idcard-layout .code-layout {
+  margin: 90rpx 0 30rpx;
+  position: relative;
+}
+
+.idcard-layout .code-layout input {
+  height: 70rpx;
+  color: rgba(0, 0, 0, 0);
+  caret-color: rgba(0, 0, 0, 0);
+  margin-left: -120%;
+}
+
+.idcard-layout .code-layout .bg-layout {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.idcard-layout .code-layout .bg-layout .item-layout {
+  flex: 1;
+  height: 70rpx;
+  margin-left: 5rpx;
+  border: 5rpx solid rgb(236, 235, 235);
+  text-align: center;
+}
+
+.idcard-layout .code-layout .bg-layout .item-layout text {
+  font-family: 'Corki';
+  font-weight: bold;
+  font-size: 60rpx;
+}
+
+.btn-submit {
+  height: 100rpx;
+  text-align: center;
+  color: white;
+  line-height: 100rpx;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  margin: 40rpx 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0 15rpx;
+}
+
+.btn-submit:active {
+  background-color: #e4312e;
+}
+
+.input-layout {
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  margin-top: 50rpx;
+  min-height: 300rpx;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15rpx;
+}

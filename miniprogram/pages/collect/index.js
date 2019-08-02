@@ -23,7 +23,12 @@ Page({
     leaveDate: "请选择您的退役时间",
     leaveStartDate: null,
     leaveEndDate: null,
-    isShowAddressMask: false,
+    isShowArmyAddressDialog: false,
+    armyAddress: null, //退役地址
+    isShowLiveAddressDialog: false,
+    liveAddress: null, //现居住地
+    isShowWorkCityDialog: false,
+    workCity: null, //意向城市
   },
 
   /**
@@ -32,10 +37,12 @@ Page({
   onLoad: function(options) {
     var that = this;
 
+    app.globalData.userInfo.xingbie = "1";
+
     that.setData({
       userInfo: app.globalData.userInfo,
     })
-    that.data.userInfo.shengri = "请选择您的出生日期";
+    that.data.userInfo.chushengnianyue = "请选择您的出生日期";
 
     that.data.birthdayStartDate = dateUtil.fromToday(-36500, "-"); //100岁
     that.data.birthdayEndDate = dateUtil.fromToday(-5110, "-"); //14岁
@@ -77,7 +84,7 @@ Page({
    */
   onInputPhoneListener: function(e) {
     var that = this;
-    that.data.userInfo.dianhua = e.detail.value;
+    that.data.userInfo.shouji = e.detail.value;
     console.error("user:", that.data.userInfo)
   },
 
@@ -122,7 +129,7 @@ Page({
    */
   bindAreaChange: function(e) {
     var that = this;
-    that.data.userInfo.jiguan = that.data.areas[e.detail.value];
+    that.data.userInfo.jiguang = that.data.areas[e.detail.value];
     this.setData({
       areaIndex: e.detail.value
     })
@@ -146,7 +153,7 @@ Page({
    */
   onBirthdayDateDateChange: function(e) {
     var that = this;
-    that.data.userInfo.shengri = e.detail.value;
+    that.data.userInfo.chushengnianyue = e.detail.value;
     this.setData({
       userInfo: that.data.userInfo,
     })
@@ -158,61 +165,134 @@ Page({
    */
   selectedCollegeListener: function(e) {
     var that = this;
-    that.data.userInfo.daxueruwu = e.currentTarget.dataset.type;
+    that.data.userInfo.sfdaxueshengruwu = e.currentTarget.dataset.type;
     this.setData({
       collegeIndex: e.currentTarget.dataset.type
     })
     console.error("user:", that.data.userInfo)
   },
 
-
+  /**
+   * 入伍时间监听
+   */
   bindIntoDateChange: function(e) {
+    var that = this;
+    that.data.userInfo.ruwushijian = e.detail.value
     this.setData({
       intoDate: e.detail.value,
       leaveStartDate: e.detail.value,
     })
+    console.error("user:", that.data.userInfo)
   },
 
+  /**
+   * 退役时间监听
+   */
   bindLeaveDateChange: function(e) {
+    var that = this;
+    that.data.userInfo.tuiwushijian = e.detail.value
     this.setData({
       leaveDate: e.detail.value
     })
+    console.error("user:", that.data.userInfo)
   },
 
   /**
-   * 显示所在区域对话框
+   * 退役居住地显示
    */
-  showAddressPickerView: function() {
+  showArmyAddressPickerView: function() {
     this.setData({
-      isShowAddressMask: true
+      isShowArmyAddressDialog: true
     })
   },
 
-
   /**
-   * 选择所在区域监听
+   * 退役居住地监听
    */
-  selectAreaListener: function(e) {
+  selectArmyAddressListener: function(e) {
     var that = this;
     var province = e.detail.currentTarget.dataset.province;
     var city = e.detail.currentTarget.dataset.city;
     var area = e.detail.currentTarget.dataset.area;
 
-    that.data.province = province;
-    that.data.city = city;
-    that.data.area = area;
-
-    this.data.address = province + "-" + city + "-" + area;
+    that.data.userInfo.tuiyishizhudi = province + city + area;
+    that.data.liveAddress = province + "-" + city + "-" + area;
     this.setData({
-      isShowAddressMask: false,
-      address: this.data.address
+      isShowArmyAddressDialog: false,
+      armyAddress: that.data.liveAddress
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 退役详细地址监听
+   */
+  onInputArmyAddressListener: function(e) {
+    var that = this;
+    that.data.userInfo.armyAddressInfo = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 现居住地显示
+   */
+  showLiveAddressPickerView: function() {
+    this.setData({
+      isShowLiveAddressDialog: true
     })
   },
 
-  bindPoliticsChange: function(e) {
+  /**
+   * 现居地址所在区域监听
+   */
+  selectLiveAddressListener: function(e) {
+    var that = this;
+    var province = e.detail.currentTarget.dataset.province;
+    var city = e.detail.currentTarget.dataset.city;
+    var area = e.detail.currentTarget.dataset.area;
+
+    that.data.userInfo.xianjudizhi = province + city + area;
+    that.data.liveAddress = province + "-" + city + "-" + area;
     this.setData({
-      politicsIndex: e.detail.value
+      isShowLiveAddressDialog: false,
+      liveAddress: that.data.liveAddress
     })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 现居住详细地址监听
+   */
+  onInputLiveAddressListener: function(e) {
+    var that = this;
+    that.data.userInfo.liveAddressInfo = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 退役居住地显示
+   */
+  showWorkCityPickerView: function() {
+    this.setData({
+      isShowWorkCityDialog: true
+    })
+  },
+
+  /**
+   * 退役居住地监听
+   */
+  selectWorkCityListener: function(e) {
+    var that = this;
+    var province = e.detail.currentTarget.dataset.province;
+    var city = e.detail.currentTarget.dataset.city;
+
+    that.data.userInfo.yixiangchengshi = city;
+    that.data.workCity = city;
+    this.setData({
+      isShowWorkCityDialog: false,
+      workCity: that.data.workCity
+    })
+    console.error("user:", that.data.userInfo)
   },
 
   /**
@@ -222,6 +302,14 @@ Page({
     var that = this;
     wx.navigateTo({
       url: './IDCard/index',
+    })
+  },
+
+  jumpExtendPage: function(e) {
+    var that = this;
+    var type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: './extend/index?type=' + type,
     })
   },
 

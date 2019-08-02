@@ -27,6 +27,16 @@
   font-weight: bold;
 }
 
+.item-frame-layout>.item-layout>.empty-view {
+  width: 30rpx;
+}
+
+.item-frame-layout>.item-layout>.input-view {
+  flex: 1;
+  margin-right: 30rpx;
+  height: 120rpx;
+}
+
 .item-frame-layout>.item-layout>.value {
   color: #666;
   width: 340rpx;
@@ -64,7 +74,6 @@
   background-color: #e4312e;
 }
 
-
 .sex-man {
   border: 1px solid #c5c5c5;
   background-color: white;
@@ -85,7 +94,7 @@
   font-size: 30rpx;
 }
 
-.sex-man.active,.sex-woman.active {
+.sex-man.active, .sex-woman.active {
   border: 1px solid #a6ffe1;
   color: #36c58f;
   background-color: #eafff8;

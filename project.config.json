@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -56,6 +56,13 @@
 					"id": -1,
 					"name": "身份证录入",
 					"pathName": "pages/collect/IDCard/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "资料录入",
+					"pathName": "pages/collect/extend/index",
 					"scene": null
 				}
 			]

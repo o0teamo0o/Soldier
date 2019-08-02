@@ -18,8 +18,8 @@
           <text class="key">性别</text>
           <view class="flex-1" />
           <view class='value'>
-            <text class="sex-man {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>男</text>
-            <text class="sex-woman' {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>女</text>
+            <text class="sex-man {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>男</text>
+            <text class="sex-woman' {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>女</text>
           </view>
           <view class="img-arrow" />
         </view>
@@ -28,7 +28,7 @@
           <view class="mark" />
           <text class="key">手机号码</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的联系电话" value="{{userinfo.dianhua}}" bindinput="onInputPhoneListener" type="number" />
+          <input class="value" placeholder="请输入您的联系电话" value="{{userinfo.shouji}}" bindinput="onInputPhoneListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -60,9 +60,9 @@
           <view class="mark" />
           <text class="key">出生年月</text>
           <view class="flex-1" />
-          <picker class="value" mode="date" value="{{userInfo.shengri}}" start="{{birthdayStartDate}}" end="{{birthdayEndDate}}" bindchange="onBirthdayDateDateChange">
+          <picker class="value" mode="date" value="{{userInfo.chushengnianyue}}" start="{{birthdayStartDate}}" end="{{birthdayEndDate}}" bindchange="onBirthdayDateDateChange">
             <view class="picker">
-              {{userInfo.shengri}}
+              {{userInfo.chushengnianyue}}
             </view>
           </picker>
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
@@ -88,7 +88,7 @@
           <view class="mark" />
           <text class="key">籍贯</text>
           <view class="flex-1" />
-          <picker class="value" bindchange="bindAreaChange" value="{{userinfo.jiguan}}" range="{{areas}}">
+          <picker class="value" bindchange="bindAreaChange" value="{{userinfo.jiguang}}" range="{{areas}}">
             <view class="picker">
               {{areas[areaIndex]}}
             </view>
@@ -119,36 +119,41 @@
           <view class="img-arrow" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="0">
           <view class="mark" />
           <text class="key">在部队专业</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的专业" />
-          <view class="img-arrow" />
+          <input class="value" placeholder="请输入您的专业" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="1">
           <view class="mark" />
           <text class="key">在部队特长</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的专业" />
-          <view class="img-arrow" />
+          <input class="value" placeholder="请输入您的专业" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="2">
           <view class="mark" />
           <text class="key">退役时军种</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的专业" />
-          <view class="img-arrow" />
+          <input class="value" placeholder="请输入您退役时军种" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="showArmyAddressPickerView">
           <view class="mark" />
           <text class="key">退役时驻地</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的专业" />
-          <view class="img-arrow" />
+          <input class="value" placeholder="请选择退役时驻地" value="{{armyAddress}}" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line margin-left-30" wx:if="{{armyAddress}}" />
+        <view class="item-layout" wx:if="{{armyAddress}}">
+          <view class="empty-view" />
+          <input class="input-view" placeholder="请填写详细地址" bindinput="onInputArmyAddressListener" />
         </view>
         <view class="line" />
         <view class="item-layout">
@@ -183,27 +188,32 @@
           <view class="img-arrow" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="showLiveAddressPickerView">
           <view class="mark" />
           <text class="key">现居住地</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" />
-          <view class="img-arrow" />
+          <input class="value" placeholder="请选择入您的现居地" value="{{liveAddress}}" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line margin-left-30" wx:if="{{liveAddress}}" />
+        <view class="item-layout" wx:if="{{liveAddress}}">
+          <view class="empty-view" />
+          <input class="input-view" placeholder="请填写详细地址" bindinput="onInputLiveAddressListener" />
         </view>
         <view class="line" />
-        <view class="item-layout">
+        <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="3">
           <view class="mark" />
           <text class="key">意向职业</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" />
-          <view class="img-arrow" />
+          <input class="value" placeholder="请输入您的意向职业" disabled="true" />
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
-        <view class="item-layout" hover-class="click-hover" catchtap="showAddressPickerView">
+        <view class="item-layout" hover-class="click-hover" catchtap="showWorkCityPickerView">
           <view class="mark" />
           <text class="key">意向城市</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请选择您的意向就职区域" value="{{address}}" disabled="true" />
+          <input class="value" placeholder="请选择您的意向城市" value="{{workCity}}" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -215,5 +225,7 @@
 </view>
 
 <view>
-  <area-picker show="{{isShowAddressMask}}" bind:sureSelectArea="selectAreaListener"></area-picker>
+  <area-picker show="{{isShowArmyAddressDialog}}" bind:sureSelectArea="selectArmyAddressListener"></area-picker>
+  <area-picker show="{{isShowLiveAddressDialog}}" bind:sureSelectArea="selectLiveAddressListener"></area-picker>
+  <area-picker show="{{isShowWorkCityDialog}}" isShowArea="{{false}}" bind:sureSelectArea="selectWorkCityListener"></area-picker>
 </view>

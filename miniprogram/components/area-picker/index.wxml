@@ -29,12 +29,16 @@
       <picker-view-column>
         <view class="nyz_area_colum_view" wx:for="{{provinces}}" wx:key='key'>{{item}}</view>
       </picker-view-column>
-      <picker-view-column>
-        <view class="nyz_area_colum_view" wx:for="{{citys}}" wx:key='key'>{{item}}</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view class="nyz_area_colum_view" wx:for="{{areas}}" wx:key='key'>{{item}}</view>
-      </picker-view-column>
+      <block wx:if="{{isShowCity}}">
+        <picker-view-column>
+          <view class="nyz_area_colum_view" wx:for="{{citys}}" wx:key='key'>{{item}}</view>
+        </picker-view-column>
+      </block>
+      <block wx:if="{{isShowArea}}">
+        <picker-view-column>
+          <view class="nyz_area_colum_view" wx:for="{{areas}}" wx:key='key'>{{item}}</view>
+        </picker-view-column>
+      </block>
     </picker-view>
   </view>
 </popup>

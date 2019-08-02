@@ -3,5 +3,10 @@
 <view class='container'>
   <toast id="notify" />
   <view class='idcard-layout'>
+    <view class='name-title'>{{hint}}</view>
+
+    <textarea class="input-layout" placeholder="{{placeholder}}" maxlength="500" auto-focus="true" auto-height="true" value="{{textValue}}" bindinput="onInputListener"></textarea>
+
+    <view class="btn-submit bg-main" catchtap='onIDCardSubmit'>确 定</view>
   </view>
 </view>
