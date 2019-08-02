@@ -65,7 +65,6 @@ Page({
     }
     app.globalData.userInfo.shenfenzheng = that.data.idNumber;
     app.globalData.userInfo.chushengnianyue = that.data.birthday;
-    // app.globalData.userInfo.xingbie = that.data.sex;
 
     wx.navigateBack({
       delta: 1

@@ -2,6 +2,7 @@
 const app = getApp()
 var dateUtil = require('../../libs/dateUtil.js');
 var utils = require('../../libs/util.js');
+import Notify from '../../components/notify/notify.js';
 
 Page({
 
@@ -38,6 +39,7 @@ Page({
     var that = this;
 
     app.globalData.userInfo.xingbie = "1";
+    app.globalData.userInfo.sfdaxueshengruwu = "0";
 
     that.setData({
       userInfo: app.globalData.userInfo,
@@ -56,6 +58,113 @@ Page({
       intoStartDate: that.data.intoStartDate,
       intoEndDate: that.data.intoEndDate,
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    var that = this;
+
+    that.setData({
+      userInfo: app.globalData.userInfo,
+    })
+    console.error("userinfo:", that.data.userInfo)
+  },
+
+  /**
+   * 提交按钮
+   */
+  onSubmit: function() {
+    var that = this;
+    if (utils.isEmpty(that.data.userInfo.xingming)) {
+      app.showToastError("请先完善姓名信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.shouji)) {
+      app.showToastError("请先完善手机信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.weixin)) {
+      app.showToastError("请先完善微信号!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.qq)) {
+      app.showToastError("请先完善QQ号!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.shenfenzheng)) {
+      app.showToastError("请先完善身份证信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.chushengnianyue)) {
+      app.showToastError("请先完善出生年月信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.shengao)) {
+      app.showToastError("请先完善身高信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.tizhong)) {
+      app.showToastError("请先完善体重信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.jiguang)) {
+      app.showToastError("请先完善籍贯信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.xueli)) {
+      app.showToastError("请先完善学历信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.buduizhuanye)) {
+      app.showToastError("请先完善部队专业信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.buduitechang)) {
+      app.showToastError("请先完善部队特长信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.tuiyishijunzhong)) {
+      app.showToastError("请先完善退役时军种信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.tuiyishizhudi)) {
+      app.showToastError("请先完善退役时驻地信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.armyAddressInfo)) {
+      app.showToastError("请先完善退役时驻地详细地址信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.ruwushijian)) {
+      app.showToastError("请先完善入伍时间信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.tuiwushijian)) {
+      app.showToastError("请先完善退伍时间信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.junxian)) {
+      app.showToastError("请先完善军衔信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.xianjuzhudi)) {
+      app.showToastError("请先完善现居住地信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.liveAddressInfo)) {
+      app.showToastError("请先完善现居住地详细地址信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.yixiangzhiye)) {
+      app.showToastError("请先完善意向职业信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.yixiangchengshi)) {
+      app.showToastError("请先完善意向城市信息!")
+      return;
+    }
   },
 
   /**
@@ -198,6 +307,15 @@ Page({
   },
 
   /**
+   * 军衔监听
+   */
+  onInputRankListener: function(e) {
+    var that = this;
+    that.data.userInfo.junxian = e.detail.value;
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
    * 退役居住地显示
    */
   showArmyAddressPickerView: function() {
@@ -216,10 +334,10 @@ Page({
     var area = e.detail.currentTarget.dataset.area;
 
     that.data.userInfo.tuiyishizhudi = province + city + area;
-    that.data.liveAddress = province + "-" + city + "-" + area;
+    that.data.armyAddress = province + "-" + city + "-" + area;
     this.setData({
       isShowArmyAddressDialog: false,
-      armyAddress: that.data.liveAddress
+      armyAddress: that.data.armyAddress
     })
     console.error("user:", that.data.userInfo)
   },
@@ -251,7 +369,7 @@ Page({
     var city = e.detail.currentTarget.dataset.city;
     var area = e.detail.currentTarget.dataset.area;
 
-    that.data.userInfo.xianjudizhi = province + city + area;
+    that.data.userInfo.xianjuzhudi = province + city + area;
     that.data.liveAddress = province + "-" + city + "-" + area;
     this.setData({
       isShowLiveAddressDialog: false,
@@ -318,17 +436,6 @@ Page({
    */
   onReady: function() {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    var that = this;
-
-    that.setData({
-      userInfo: app.globalData.userInfo,
-    })
   },
 
   /**

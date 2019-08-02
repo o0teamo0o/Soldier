@@ -510,7 +510,8 @@ function isValidityBrithBy18IdCard(idCard18) {
     temp_date.getDate() != parseFloat(day)) {
     return false;
   } else {
-    return year + "-" + month + "-" + day;
+    // return year + "-" + month + "-" + day;
+    return year + "-" + month;
   }
 }
 
@@ -530,7 +531,8 @@ function isValidityBrithBy15IdCard(idCard15) {
     temp_date.getDate() != parseFloat(day)) {
     return false;
   } else {
-    return year + "-" + month + "-" + day;
+    // return year + "-" + month + "-" + day;
+    return year + "-" + month;
   }
 }
 

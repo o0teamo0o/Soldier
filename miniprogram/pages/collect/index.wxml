@@ -1,6 +1,7 @@
 <!--miniprogram/pages/collect/index.wxml-->
 
 <view class='body'>
+  <toast id="notify" />
   <view class="wrap flex flex-v">
     <view class='main flex-1'>
       <view class="item-frame-layout">
@@ -9,7 +10,7 @@
           <view class="mark" />
           <text class="key">姓名</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的姓名" value="{{userinfo.xingming}}" bindinput="onInputNameListener" />
+          <input class="value" placeholder="请输入您的姓名" value="{{userInfo.xingming}}" bindinput="onInputNameListener" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -28,7 +29,7 @@
           <view class="mark" />
           <text class="key">手机号码</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的联系电话" value="{{userinfo.shouji}}" bindinput="onInputPhoneListener" type="number" />
+          <input class="value" placeholder="请输入您的联系电话" value="{{userInfo.shouji}}" bindinput="onInputPhoneListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -36,7 +37,7 @@
           <view class="mark" />
           <text class="key">微信号</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的微信号" value="{{userinfo.weixin}}" bindinput="onInputWeixinListener" />
+          <input class="value" placeholder="请输入您的微信号" value="{{userInfo.weixin}}" bindinput="onInputWeixinListener" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -44,7 +45,7 @@
           <view class="mark" />
           <text class="key">QQ号</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的QQ号" value="{{userinfo.qq}}" bindinput="onInputQQListener" />
+          <input class="value" placeholder="请输入您的QQ号" value="{{userInfo.qq}}" bindinput="onInputQQListener" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -60,7 +61,7 @@
           <view class="mark" />
           <text class="key">出生年月</text>
           <view class="flex-1" />
-          <picker class="value" mode="date" value="{{userInfo.chushengnianyue}}" start="{{birthdayStartDate}}" end="{{birthdayEndDate}}" bindchange="onBirthdayDateDateChange">
+          <picker class="value" mode="date" value="{{userInfo.chushengnianyue}}" fields="month" start="{{birthdayStartDate}}" end="{{birthdayEndDate}}" bindchange="onBirthdayDateDateChange">
             <view class="picker">
               {{userInfo.chushengnianyue}}
             </view>
@@ -72,7 +73,7 @@
           <view class="mark" />
           <text class="key">身高</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userinfo.shengao}}" bindinput="onInputShengaoListener" type="number" />
+          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userInfo.shengao}}" bindinput="onInputShengaoListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -80,7 +81,7 @@
           <view class="mark" />
           <text class="key">体重</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的体重(千克)" value="{{userinfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
+          <input class="value" placeholder="请输入您的体重(千克)" value="{{userInfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -88,7 +89,7 @@
           <view class="mark" />
           <text class="key">籍贯</text>
           <view class="flex-1" />
-          <picker class="value" bindchange="bindAreaChange" value="{{userinfo.jiguang}}" range="{{areas}}">
+          <picker class="value" bindchange="bindAreaChange" value="{{userInfo.jiguang}}" range="{{areas}}">
             <view class="picker">
               {{areas[areaIndex]}}
             </view>
@@ -123,7 +124,7 @@
           <view class="mark" />
           <text class="key">在部队专业</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的专业" disabled="true" />
+          <input class="value" placeholder="请输入您的专业" value="{{userInfo.buduizhuanye}}" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -131,7 +132,7 @@
           <view class="mark" />
           <text class="key">在部队特长</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的专业" disabled="true" />
+          <input class="value" placeholder="请输入您的特长" value="{{userInfo.buduitechang}}" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -139,7 +140,7 @@
           <view class="mark" />
           <text class="key">退役时军种</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您退役时军种" disabled="true" />
+          <input class="value" placeholder="请输入您退役时军种" value="{{userInfo.tuiyishijunzhong}}" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -153,7 +154,7 @@
         <view class="line margin-left-30" wx:if="{{armyAddress}}" />
         <view class="item-layout" wx:if="{{armyAddress}}">
           <view class="empty-view" />
-          <input class="input-view" placeholder="请填写详细地址" bindinput="onInputArmyAddressListener" />
+          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputArmyAddressListener" />
         </view>
         <view class="line" />
         <view class="item-layout">
@@ -184,7 +185,7 @@
           <view class="mark" />
           <text class="key">军衔</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" />
+          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener"  />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -198,14 +199,14 @@
         <view class="line margin-left-30" wx:if="{{liveAddress}}" />
         <view class="item-layout" wx:if="{{liveAddress}}">
           <view class="empty-view" />
-          <input class="input-view" placeholder="请填写详细地址" bindinput="onInputLiveAddressListener" />
+          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputLiveAddressListener" />
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="3">
           <view class="mark" />
           <text class="key">意向职业</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的意向职业" disabled="true" />
+          <input class="value" placeholder="请输入您的意向职业" value="{{userInfo.yixiangzhiye}}" disabled="true" />
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
@@ -219,7 +220,7 @@
         <view class="line" />
       </view>
 
-      <view class="btn-submit bg-main">提 交</view>
+      <view class="btn-submit bg-main" catchtap="onSubmit">提 交</view>
     </view>
   </view>
 </view>

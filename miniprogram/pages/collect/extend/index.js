@@ -1,4 +1,8 @@
 // miniprogram/pages/collect/extend/index.js
+const app = getApp()
+var utils = require('../../../libs/util.js');
+import Notify from '../../../components/notify/notify.js';
+
 Page({
 
   /**
@@ -55,14 +59,46 @@ Page({
     var value = e.detail.value;
 
     if (that.data.type == 0) {
-      app.globalData.buduizhuanye = e.detail.value;
+      app.globalData.userInfo.buduizhuanye = value;
     } else if (that.data.type == 1) {
-      app.globalData.buduitechang = e.detail.value;
+      app.globalData.userInfo.buduitechang = value;
     } else if (that.data.type == 2) {
-      app.globalData.tuiyishijunzhong = e.detail.value;
+      app.globalData.userInfo.tuiyishijunzhong = value;
     } else if (that.data.type == 3) {
-      app.globalData.yixiangzhiye = e.detail.value;
+      app.globalData.userInfo.yixiangzhiye = value;
     }
+  },
+
+  /**
+   * 身份证号码提交
+   */
+  onIDCardSubmit: function() {
+    var that = this;
+
+    if (that.data.type == 0) {
+      if (utils.isEmpty(app.globalData.userInfo.buduizhuanye)) {
+        app.showToastError("请先填写部队专业信息!")
+        return;
+      }
+    } else if (that.data.type == 1) {
+      if (utils.isEmpty(app.globalData.userInfo.buduitechang)) {
+        app.showToastError("请先填写部队特长信息!")
+        return;
+      }
+    } else if (that.data.type == 2) {
+      if (utils.isEmpty(app.globalData.userInfo.tuiyishijunzhong)) {
+        app.showToastError("请先填写退役时兵种信息!")
+        return;
+      }
+    } else if (that.data.type == 3) {
+      if (utils.isEmpty(app.globalData.userInfo.yixiangzhiye)) {
+        app.showToastError("请先填写意向职业信息!")
+        return;
+      }
+    }
+    wx.navigateBack({
+      delta: 1
+    })
   },
 
   /**
