@@ -99,3 +99,99 @@
   color: #36c58f;
   background-color: #eafff8;
 }
+
+.popup-user-layout {
+  width: 80vw;
+  border-radius: 10rpx;
+  background-color: white;
+}
+
+.popup-user-layout>.title {
+  width: 100%;
+  font-size: 34rpx;
+  color: #333;
+  font-weight: bold;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.popup-user-layout .content {
+  margin: 30rpx;
+}
+
+.tableView {
+  border: 1px solid #000;
+  border-right: 0;
+  margin-top: 15rpx;
+  border-bottom: 0;
+  width: 100%;
+}
+
+/* 表头 */
+
+.tableView .table_header {
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  width: 100%;
+  font-size: 35rpx;
+  color: #330e0e;
+  text-align: center;
+  font-weight: 900;
+}
+
+.tableView .table_header .th {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.tableView .table_header .th1, .th2 {
+  width: 20%;
+}
+
+.tableView .table_header .th3 {
+  width: 60%;
+}
+
+.tableView .table_header .th4 {
+  width: 100%;
+}
+
+/* 表格cell */
+
+.tableView .table_cell {
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  width: 100%;
+  font-size: 25rpx;
+  color: #330e0e;
+  text-align: center;
+}
+
+.tableView .table_cell .td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 60rpx; */
+  padding: 15rpx 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.tableView .table_cell .td1, .td2 {
+  width: 20%;
+}
+.tableView .table_cell .td5 {
+  width: 40%;
+}
+
+.tableView .table_cell .td3 {
+  width: 60%;
+}
+
+.tableView .table_cell .td4 {
+  width: 100%;
+}

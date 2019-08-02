@@ -30,6 +30,7 @@ Page({
     liveAddress: null, //现居住地
     isShowWorkCityDialog: false,
     workCity: null, //意向城市
+    isShowUserInfoDialog: true,
   },
 
   /**

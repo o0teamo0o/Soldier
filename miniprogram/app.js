@@ -2,20 +2,52 @@
 import Notify from './components/notify/notify.js';
 
 App({
-  
+
   globalData: {
     userInfo: {}, //微信用户信息
+    debugPath: 'http://47.98.59.186/',
+    releasePath: 'http://47.98.59.186/',
   },
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
-  onLaunch: function() {},
+  onLaunch: function() {
+    var that = this;
+
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        env: 'debug-2ppdt',
+        traceUser: true,
+      })
+    }
+  },
+
+  /**
+   *  获取用户openid
+   */
+  getOpenid: function() {
+    var that = this;
+    return new Promise(function(result) {
+      wx.cloud.callFunction({
+        name: 'login',
+        complete: res => {
+          if (that.globalData.showLog) {
+            console.info("当前用户openId:", res.result.openid)
+          }
+          that.globalData.openId = res.result.openid;
+          result(res.result.openid);
+        }
+      })
+    })
+  },
 
   /**
    * 显示success日志
    */
-  showToastSuccess: function (message) {
+  showToastSuccess: function(message) {
     Notify({
       text: message,
       duration: 3000,
@@ -27,7 +59,7 @@ App({
   /**
    * 显示错误日志
    */
-  showToastError: function (message) {
+  showToastError: function(message) {
     Notify({
       text: message,
       duration: 3000,

@@ -185,7 +185,7 @@
           <view class="mark" />
           <text class="key">军衔</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener"  />
+          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -229,4 +229,34 @@
   <area-picker show="{{isShowArmyAddressDialog}}" bind:sureSelectArea="selectArmyAddressListener"></area-picker>
   <area-picker show="{{isShowLiveAddressDialog}}" bind:sureSelectArea="selectLiveAddressListener"></area-picker>
   <area-picker show="{{isShowWorkCityDialog}}" isShowArea="{{false}}" bind:sureSelectArea="selectWorkCityListener"></area-picker>
+
+  <!-- <popup show="{{ isShowUserInfoDialog }}" position="center">
+    <view class="popup-user-layout">
+      <view class="title">信息核对</view>
+      <view class="content">
+        <view class="tableView">
+          <view class="table_cell">
+            <view class="td td5">姓名</view>
+            <view class="td td3">{{userInfo.xingming}}</view>
+          </view>
+          <view class="table_cell">
+            <view class="td td5">性别</view>
+            <view class="td td3">{{userInfo.xingbie}}</view>
+          </view>
+          <view class="table_cell">
+            <view class="td td5">手机</view>
+            <view class="td td3">{{userInfo.shouji}}</view>
+          </view>
+          <view class="table_cell">
+            <view class="td td5">微信</view>
+            <view class="td td3">{{userInfo.weixin}}</view>
+          </view>
+          <view class="table_cell">
+            <view class="td td5">QQ</view>
+            <view class="td td3">{{userInfo.qq}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup> -->
 </view>

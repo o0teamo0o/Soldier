@@ -1,5 +1,8 @@
 //index.js
 const app = getApp()
+import {
+  soldirerinfo, //获取用户信息
+} from "../../libs/API";
 
 Page({
 
@@ -8,6 +11,7 @@ Page({
    */
   data: {
     isShowAnimation: false, //是否显示红旗动画
+    openId: null,
   },
 
   /**
@@ -35,15 +39,41 @@ Page({
   getUserInfo: function(e) {
     var that = this;
     if (e.detail.userInfo) {
-      console.error("用户信息:", e.detail.userInfo)
+      console.error("用户信息:", e)
       app.globalData.userInfo = e.detail.userInfo;
-      wx.navigateTo({
-        url: '../collect/index',
+
+      app.getOpenid().then(function(res) {
+        console.error("res:", res)
+        that.data.openId = res;
+        that.loadUserInfo();
       })
+
+      // wx.navigateTo({
+      //   url: '../collect/index',
+      // })
     } else {
       //用户按了拒绝按钮
       console.log("用户拒绝了权限");
     }
+  },
+
+  /**
+   * 获取用户信息
+   */
+  loadUserInfo: function() {
+    var that = this;
+    soldirerinfo("?openid=" + that.data.openId, false)
+      .then(result => {
+        if (result.resCode == "00000") {
+
+        } else {
+          app.showToastError(result.resInfo)
+        }
+      }).catch(e => {
+        if (!utils.isEmpty(e.errMsg)) {
+          app.showToastError(e.errMsg)
+        }
+      })
   },
 
   jumpInfoPage: function() {
@@ -64,8 +94,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
