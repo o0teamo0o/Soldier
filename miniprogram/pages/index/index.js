@@ -79,7 +79,7 @@ Page({
   jumpInfoPage: function() {
     var that = this;
     wx.navigateTo({
-      url: '../info/index',
+      url: '../introduction/index',
     })
 
   },

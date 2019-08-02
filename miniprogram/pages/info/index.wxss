@@ -33,7 +33,7 @@
   width: 100vw;
   height: auto;
   position: absolute;
-  top: 19vh;
+  top: 25vh;
   left: 0;
   z-index: 10;
   display: flex;
@@ -72,7 +72,7 @@
 }
 
 .content>.paragraph {
-  padding: 30rpx 50rpx;
+  padding: 70rpx 50rpx;
   color: #333;
   font-weight: bold;
   opacity: 0;

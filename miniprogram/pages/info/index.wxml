@@ -3,12 +3,9 @@
   <image class="red-flag {{ isShowAnimation ? 'show-red-flag' : '' }}" src="../../images/icon_red_flag.png" mode="widthFix" />
   <image class="bg" src="../../images/background.png" mode="widthFix" />
   <view class="content">
-    <view class="big-title  {{ isShowAnimation ? 'show-btn' : '' }}">关于我们</view>
-    <view class="paragraph  {{ isShowAnimation ? 'show-paragraph' : '' }}">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;军蒂企业管理集团（简称军地集团）在国务院中央军委指导下，按现代企业运作机制负责全国退伍士兵的就业创业发展工作，是整合军地资源全方位服务退伍士兵的唯一企业性质的实体机构。</text>
-    </view>
+    <view class="big-title  {{ isShowAnimation ? 'show-btn' : '' }}">感谢您的参与</view>
     <view class="paragraph {{ isShowAnimation ? 'show-paragraph' : '' }}">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;党的十八大报告提出的“坚持走中国特色军民融合式发展路子，坚持富国和强军相统一，加强军民融合式发展战略规划、体制机制建设、法规建设”新思路，把军民融合发展上升为国家战略。军地集团启动了军地两用人才培养伟大实业工程，对全国退伍士兵就业创业培训进行探索研究，积极配合国家职能部门实现退伍士兵就业安置社会化、市场化和常态化，保障和提升退伍士兵就业创业的能力素质。</text>
+      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;军蒂企业管理集团，简称军地集团，是按现代企业运作机制，负责全国退役士兵的就业创业发展工作，是整合军地资源全方位服务全国退役士兵的唯一企业性质实体机构。</text>
     </view>
   </view>
   <image class="img-land {{ isShowAnimation ? 'show-land' : '' }}" src="../../images/icon_land.png" mode="widthFix" />
