@@ -1,0 +1,10 @@
+/* miniprogram/pages/introduction/index.wxss */
+.body {
+  background-color: #e42a15;
+}
+
+image {
+  width: 100vw;
+  height: auto;
+  display: block;
+}
