@@ -10,7 +10,7 @@
           <view class="mark" />
           <text class="key">姓名</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的姓名" value="{{userInfo.xingming}}" bindinput="onInputNameListener" />
+          <input class="value" placeholder="请输入您的姓名" value="{{userInfo.xingming}}" bindinput="onInputNameListener" maxlength="50" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -19,8 +19,8 @@
           <text class="key">性别</text>
           <view class="flex-1" />
           <view class='value'>
-            <text class="sex-man {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>男</text>
-            <text class="sex-woman' {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>女</text>
+            <text class="sex-man {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>男</text>
+            <text class="sex-woman' {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>女</text>
           </view>
           <view class="img-arrow" />
         </view>
@@ -29,7 +29,7 @@
           <view class="mark" />
           <text class="key">手机号码</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的联系电话" value="{{userInfo.shouji}}" bindinput="onInputPhoneListener" type="number" />
+          <input class="value" placeholder="请输入您的联系电话" value="{{userInfo.shouji}}" bindinput="onInputPhoneListener" type="number" maxlength="11"/>
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -45,7 +45,7 @@
           <view class="mark" />
           <text class="key">QQ号</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的QQ号" value="{{userInfo.qq}}" bindinput="onInputQQListener" />
+          <input class="value" placeholder="请输入您的QQ号" value="{{userInfo.qq}}" bindinput="onInputQQListener" maxlength="11" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -73,7 +73,7 @@
           <view class="mark" />
           <text class="key">身高</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userInfo.shengao}}" bindinput="onInputShengaoListener" type="number" />
+          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userInfo.shengao}}" bindinput="onInputShengaoListener" maxlength="3" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -81,7 +81,7 @@
           <view class="mark" />
           <text class="key">体重</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的体重(千克)" value="{{userInfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
+          <input class="value" maxlength="5" placeholder="请输入您的体重(千克)" value="{{userInfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -154,7 +154,7 @@
         <view class="line margin-left-30" wx:if="{{armyAddress}}" />
         <view class="item-layout" wx:if="{{armyAddress}}">
           <view class="empty-view" />
-          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputArmyAddressListener" />
+          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputArmyAddressListener" maxlength="100" />
         </view>
         <view class="line" />
         <view class="item-layout">
@@ -185,7 +185,7 @@
           <view class="mark" />
           <text class="key">军衔</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener" />
+          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener" maxlength="50" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -199,7 +199,7 @@
         <view class="line margin-left-30" wx:if="{{liveAddress}}" />
         <view class="item-layout" wx:if="{{liveAddress}}">
           <view class="empty-view" />
-          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputLiveAddressListener" />
+          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputLiveAddressListener" maxlength="100" />
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="3">

@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <toast id="notify" />
   <image class="red-flag {{ isShowAnimation ? 'show-red-flag' : '' }}" src="../../images/icon_red_flag.png" mode="widthFix" />
   <image class="bg" src="../../images/background.png" mode="widthFix" />
   <view class="content">

@@ -65,12 +65,6 @@
   transition: all 1.5s ease-out 0.9s;
 }
 
-.content>.show-btn {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-}
-
 .content>.paragraph {
   padding: 70rpx 50rpx;
   color: #333;
@@ -97,7 +91,19 @@
   border-radius: 40rpx;
   z-index: 10;
   box-shadow: rgb(88, 81, 81) 0 3px 6px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-out 2.4s;
+  transition: all 0.5s ease-out 2.4s;
 }
+
+.content>.show-btn {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
 
 .content>.input {
   margin-top: 50rpx;

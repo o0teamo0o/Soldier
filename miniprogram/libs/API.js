@@ -14,9 +14,9 @@ import {
 /**
  * 获取用户信息
  */
-export const soldirerinfo = (parameter, isShowLoading) => getMap('soldirerinfo/qrySoldirerinfo', parameter, isShowLoading);
+export const qrySoldirerinfo = (parameter, isShowLoading) => getMap('soldirerinfo/qrySoldirerinfo', parameter, isShowLoading);
 
 /**
  * 评论接口
  */
-export const saveFhuaDis = (data, isShowLoading) => post('api/fhuaDis/saveFhuaDis', data, isShowLoading);
+export const insertSoldirerinfo = (data, isShowLoading) => post('soldirerinfo/insertSoldirerinfo', data, isShowLoading);
