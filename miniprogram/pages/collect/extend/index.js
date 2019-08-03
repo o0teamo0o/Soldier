@@ -25,18 +25,38 @@ Page({
       that.data.hint = "所在部队专业";
       that.data.placeholder = "请填写所在部队专业";
       that.data.title = "部队专业";
+      if (!utils.isEmpty(app.globalData.userInfo.buduizhuanye)) {
+        that.setData({
+          textValue: app.globalData.userInfo.buduizhuanye
+        })
+      }
     } else if (options.type == 1) {
       that.data.hint = "所在部队特长";
       that.data.placeholder = "请填写所在部队特长";
       that.data.title = "部队特长";
+      if (!utils.isEmpty(app.globalData.userInfo.buduitechang)) {
+        that.setData({
+          textValue: app.globalData.userInfo.buduitechang
+        })
+      }
     } else if (options.type == 2) {
       that.data.hint = "退役时军种";
       that.data.placeholder = "请填写退役时的军种";
       that.data.title = "军种";
+      if (!utils.isEmpty(app.globalData.userInfo.tuiyishijunzhong)) {
+        that.setData({
+          textValue: app.globalData.userInfo.tuiyishijunzhong
+        })
+      }
     } else if (options.type == 3) {
       that.data.hint = "意向职业";
       that.data.placeholder = "请填写您的意向职业";
       that.data.title = "意向职业";
+      if (!utils.isEmpty(app.globalData.userInfo.yixiangzhiye)) {
+        that.setData({
+          textValue: app.globalData.userInfo.yixiangzhiye
+        })
+      }
     }
 
 
