@@ -265,7 +265,11 @@ Page({
    */
   bindAreaChange: function(e) {
     var that = this;
-    that.data.userInfo.jiguang = that.data.areas[e.detail.value];
+    if (e.detail.value == 0) {
+      that.data.userInfo.jiguang = "";
+    } else {
+      that.data.userInfo.jiguang = that.data.areas[e.detail.value];
+    }
     this.setData({
       areaIndex: e.detail.value
     })
@@ -277,7 +281,11 @@ Page({
    */
   bindEducationChange: function(e) {
     var that = this;
-    that.data.userInfo.xueli = that.data.educations[e.detail.value];
+    if (e.detail.value == 0) {
+      that.data.userInfo.xueli = "";
+    } else {
+      that.data.userInfo.xueli = that.data.educations[e.detail.value];
+    }
     this.setData({
       educationIndex: e.detail.value
     })

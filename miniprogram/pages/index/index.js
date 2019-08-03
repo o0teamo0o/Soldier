@@ -47,6 +47,7 @@ Page({
 
       app.getOpenid().then(function(res) {
         console.error("res:", res)
+        // res = "o5xTE5Mgm_sXOx1Va3AJGGRlO7pa";
         that.data.openId = res;
         app.globalData.userInfo.openid = res
         that.loadUserInfo();
@@ -65,13 +66,16 @@ Page({
     qrySoldirerinfo("?openid=" + that.data.openId, true)
       .then(result => {
         if (result.resCode == "00000") {
-          if (utils.isEmpty(result.data)) {
-            wx.navigateTo({
-              url: '../collect/index',
-            })
-          } else {
-            app.showToastError("您已经填写过信息,请勿重复填写!")
-          }
+          // if (utils.isEmpty(result.data)) {
+          //   wx.navigateTo({
+          //     url: '../collect/index',
+          //   })
+          // } else {
+          //   app.showToastError("您已经填写过信息,请勿重复填写!")
+          // }
+          wx.navigateTo({
+            url: '../collect/index',
+          })
         } else {
           app.showToastError(result.resInfo)
         }
