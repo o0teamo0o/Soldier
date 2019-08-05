@@ -23,8 +23,7 @@
 
 .item-frame-layout>.item-layout>.key {
   color: #333;
-  width: 215rpx;
-  font-weight: bold;
+  width: 230rpx;
 }
 
 .item-frame-layout>.item-layout>.empty-view {

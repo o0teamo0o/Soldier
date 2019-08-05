@@ -21,7 +21,7 @@ Page({
     areaIndex: 0,
     educations: ["请选择您的学历", "初中", "中技", "高中", "中专", "大专", "本科", "硕士", "MBA", "EMBA", "博士", "其他"],
     educationIndex: 0,
-    collegeIndex: 0, //是否大学入伍 0 是 1 否
+    collegeIndex: 1, //是否大学入伍 0 是 1 否
     intoDate: "请选择您的入伍时间",
     intoStartDate: null,
     intoEndDate: null,
@@ -35,6 +35,12 @@ Page({
     isShowWorkCityDialog: false,
     workCity: null, //意向城市
     isShowUserInfoDialog: true,
+    educationUps: ["请选择", "专科", "本科", "硕士", "博士", "否"],
+    educationUpIndex: 0,
+    skills: ["请选择", "职业技能培训", "岗前培训", "否"],
+    skillIndex: 0,
+    entrepreneurships: ["请选择", "项目需求", "资金需求", "政策需求", "否"],
+    entrepreneurshipIndex: 0,
   },
 
   /**
@@ -50,6 +56,7 @@ Page({
       userInfo: app.globalData.userInfo,
     })
     that.data.userInfo.chushengnianyue = "请选择您的出生日期";
+    that.data.userInfo.sfdaxueshengruwu = "1";
 
     that.data.birthdayStartDate = dateUtil.fromToday(-36500, "-"); //100岁
     that.data.birthdayEndDate = dateUtil.fromToday(-5110, "-"); //14岁
@@ -168,6 +175,18 @@ Page({
     }
     if (utils.isEmpty(that.data.userInfo.yixiangchengshi)) {
       app.showToastError("请先完善意向城市信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.sfyxltsxq)) {
+      app.showToastError("请先完善学历提升需求信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.sfyjnpxxq)) {
+      app.showToastError("请先完善技能培训需求信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.sfycyxq)) {
+      app.showToastError("请先完善创业需求信息!")
       return;
     }
 
@@ -293,6 +312,57 @@ Page({
   },
 
   /**
+   * 学历提升需求
+   */
+  bindEducationUpChange: function(e) {
+    var that = this;
+    if (e.detail.value == 0) {
+      that.data.userInfo.sfyxltsxq = "";
+    } else if (e.detail.value != that.data.educationUps.length - 1) {
+      that.data.userInfo.sfyxltsxq = e.detail.value;
+    } else {
+      that.data.userInfo.sfyxltsxq = "0";
+    }
+    this.setData({
+      educationUpIndex: e.detail.value
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 技能培训需求
+   */
+  bindSkillChange: function(e) {
+    var that = this;
+    if (e.detail.value == 0) {
+      that.data.userInfo.sfyjnpxxq = "";
+    } else if (e.detail.value != that.data.skills.length - 1) {
+      that.data.userInfo.sfyjnpxxq = e.detail.value;
+    } else {
+      that.data.userInfo.sfyjnpxxq = "0";
+    }
+    this.setData({
+      skillIndex: e.detail.value
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  bindEntrepreneurshipChange: function(e) {
+    var that = this;
+    if (e.detail.value == 0) {
+      that.data.userInfo.sfycyxq = "";
+    } else if (e.detail.value != that.data.entrepreneurships.length - 1) {
+      that.data.userInfo.sfycyxq = e.detail.value;
+    } else {
+      that.data.userInfo.sfycyxq = "0";
+    }
+    this.setData({
+      entrepreneurshipIndex: e.detail.value
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
    * 出生日期变化监听
    */
   onBirthdayDateDateChange: function(e) {
@@ -336,7 +406,8 @@ Page({
     var that = this;
     that.data.userInfo.tuiwushijian = e.detail.value
     this.setData({
-      leaveDate: e.detail.value
+      leaveDate: e.detail.value,
+      intoEndDate: e.detail.value
     })
     console.error("user:", that.data.userInfo)
   },
