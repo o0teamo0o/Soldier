@@ -114,8 +114,8 @@
           <text class="key">是否大学生入伍</text>
           <view class="flex-1" />
           <view class='value'>
-            <text class="sex-man {{collegeIndex == 0 ? 'active' : ''}}" bindtap="selectedCollegeListener" data-type='0'>是</text>
             <text class="sex-woman' {{collegeIndex == 1 ? 'active' : ''}}" bindtap="selectedCollegeListener" data-type='1'>否</text>
+            <text class="sex-man {{collegeIndex == 0 ? 'active' : ''}}" bindtap="selectedCollegeListener" data-type='0'>是</text>
           </view>
           <view class="img-arrow" />
         </view>

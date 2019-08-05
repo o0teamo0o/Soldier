@@ -23,7 +23,7 @@
 
 .item-frame-layout>.item-layout>.key {
   color: #333;
-  width: 215rpx;
+  width: 220rpx;
   font-weight: bold;
 }
 

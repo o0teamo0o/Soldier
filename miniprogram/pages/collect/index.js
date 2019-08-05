@@ -17,7 +17,7 @@ Page({
     areaIndex: 0,
     educations: ["请选择您的学历", "初中", "中技", "高中", "中专", "大专", "本科", "硕士", "MBA", "EMBA", "博士", "其他"],
     educationIndex: 0,
-    collegeIndex: 0, //是否大学入伍 0 是 1 否
+    collegeIndex: 1, //是否大学入伍 0 是 1 否
     intoDate: "请选择您的入伍时间",
     intoStartDate: null,
     intoEndDate: null,
@@ -46,6 +46,7 @@ Page({
       userInfo: app.globalData.userInfo,
     })
     that.data.userInfo.chushengnianyue = "请选择您的出生日期";
+    that.data.userInfo.sfdaxueshengruwu = "1";
 
     that.data.birthdayStartDate = dateUtil.fromToday(-36500, "-"); //100岁
     that.data.birthdayEndDate = dateUtil.fromToday(-5110, "-"); //14岁
