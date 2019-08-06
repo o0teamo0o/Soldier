@@ -10,7 +10,7 @@
           <view class="mark" />
           <text class="key">姓名</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的姓名" value="{{userInfo.xingming}}" bindinput="onInputNameListener" />
+          <input class="value" placeholder="请输入您的姓名" value="{{userInfo.xingming}}" bindinput="onInputNameListener" maxlength="50" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -19,8 +19,8 @@
           <text class="key">性别</text>
           <view class="flex-1" />
           <view class='value'>
-            <text class="sex-man {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>男</text>
-            <text class="sex-woman' {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>女</text>
+            <text class="sex-man {{sexIndex == 1 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='1'>男</text>
+            <text class="sex-woman' {{sexIndex == 0 ? 'active' : ''}}" bindtap="selectedSexListener" data-type='0'>女</text>
           </view>
           <view class="img-arrow" />
         </view>
@@ -29,7 +29,7 @@
           <view class="mark" />
           <text class="key">手机号码</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的联系电话" value="{{userInfo.shouji}}" bindinput="onInputPhoneListener" type="number" />
+          <input class="value" placeholder="请输入您的联系电话" value="{{userInfo.shouji}}" bindinput="onInputPhoneListener" type="number" maxlength="11"/>
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -45,7 +45,7 @@
           <view class="mark" />
           <text class="key">QQ号</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的QQ号" value="{{userInfo.qq}}" bindinput="onInputQQListener" />
+          <input class="value" placeholder="请输入您的QQ号" value="{{userInfo.qq}}" bindinput="onInputQQListener" maxlength="11" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -73,7 +73,7 @@
           <view class="mark" />
           <text class="key">身高</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userInfo.shengao}}" bindinput="onInputShengaoListener" type="number" />
+          <input class="value" placeholder="请输入您的身高(厘米)" value="{{userInfo.shengao}}" bindinput="onInputShengaoListener" maxlength="3" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -81,7 +81,7 @@
           <view class="mark" />
           <text class="key">体重</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的体重(千克)" value="{{userInfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
+          <input class="value" maxlength="5" placeholder="请输入您的体重(千克)" value="{{userInfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -154,7 +154,7 @@
         <view class="line margin-left-30" wx:if="{{armyAddress}}" />
         <view class="item-layout" wx:if="{{armyAddress}}">
           <view class="empty-view" />
-          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputArmyAddressListener" />
+          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputArmyAddressListener" maxlength="100" />
         </view>
         <view class="line" />
         <view class="item-layout">
@@ -185,7 +185,7 @@
           <view class="mark" />
           <text class="key">军衔</text>
           <view class="flex-1" />
-          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener" />
+          <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener" maxlength="50" />
           <view class="img-arrow" />
         </view>
         <view class="line" />
@@ -199,7 +199,7 @@
         <view class="line margin-left-30" wx:if="{{liveAddress}}" />
         <view class="item-layout" wx:if="{{liveAddress}}">
           <view class="empty-view" />
-          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputLiveAddressListener" />
+          <input class="input-view" placeholder="街道/门牌号" bindinput="onInputLiveAddressListener" maxlength="100" />
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="3">
@@ -218,6 +218,42 @@
           <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
         </view>
         <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">是否有学历提升需求</text>
+          <view class="flex-1" />
+          <picker class="value" bindchange="bindEducationUpChange" value="{{educationUps[educationUpIndex]}}" range="{{educationUps}}">
+            <view class="picker">
+              {{educationUps[educationUpIndex]}}
+            </view>
+          </picker>
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">是否有技能培训需求</text>
+          <view class="flex-1" />
+          <picker class="value" bindchange="bindSkillChange" value="{{skills[skillIndex]}}" range="{{skills}}">
+            <view class="picker">
+              {{skills[skillIndex]}}
+            </view>
+          </picker>
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
+        <view class="item-layout">
+          <view class="mark" />
+          <text class="key">是否有创业需求</text>
+          <view class="flex-1" />
+          <picker class="value" bindchange="bindEntrepreneurshipChange" value="{{entrepreneurships[entrepreneurshipIndex]}}" range="{{entrepreneurships}}">
+            <view class="picker">
+              {{entrepreneurships[entrepreneurshipIndex]}}
+            </view>
+          </picker>
+          <image class="img-arrow" src="../../images/icon_task_arrow.png" mode="widthFix" />
+        </view>
+        <view class="line" />
       </view>
 
       <view class="btn-submit bg-main" catchtap="onSubmit">提 交</view>
@@ -229,34 +265,4 @@
   <area-picker show="{{isShowArmyAddressDialog}}" bind:sureSelectArea="selectArmyAddressListener"></area-picker>
   <area-picker show="{{isShowLiveAddressDialog}}" bind:sureSelectArea="selectLiveAddressListener"></area-picker>
   <area-picker show="{{isShowWorkCityDialog}}" isShowArea="{{false}}" bind:sureSelectArea="selectWorkCityListener"></area-picker>
-
-  <!-- <popup show="{{ isShowUserInfoDialog }}" position="center">
-    <view class="popup-user-layout">
-      <view class="title">信息核对</view>
-      <view class="content">
-        <view class="tableView">
-          <view class="table_cell">
-            <view class="td td5">姓名</view>
-            <view class="td td3">{{userInfo.xingming}}</view>
-          </view>
-          <view class="table_cell">
-            <view class="td td5">性别</view>
-            <view class="td td3">{{userInfo.xingbie}}</view>
-          </view>
-          <view class="table_cell">
-            <view class="td td5">手机</view>
-            <view class="td td3">{{userInfo.shouji}}</view>
-          </view>
-          <view class="table_cell">
-            <view class="td td5">微信</view>
-            <view class="td td3">{{userInfo.weixin}}</view>
-          </view>
-          <view class="table_cell">
-            <view class="td td5">QQ</view>
-            <view class="td td3">{{userInfo.qq}}</view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </popup> -->
 </view>

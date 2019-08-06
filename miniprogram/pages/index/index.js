@@ -1,7 +1,10 @@
 //index.js
 const app = getApp()
+var utils = require('../../libs/util.js');
+import Notify from '../../components/notify/notify.js';
+
 import {
-  soldirerinfo, //获取用户信息
+  qrySoldirerinfo, //获取用户信息
 } from "../../libs/API";
 
 Page({
@@ -44,13 +47,11 @@ Page({
 
       app.getOpenid().then(function(res) {
         console.error("res:", res)
+        // res = "o5xTE5Mgm_sXOx1Va3AJGGRlO7pa";
         that.data.openId = res;
+        app.globalData.userInfo.openid = res
         that.loadUserInfo();
       })
-
-      // wx.navigateTo({
-      //   url: '../collect/index',
-      // })
     } else {
       //用户按了拒绝按钮
       console.log("用户拒绝了权限");
@@ -62,10 +63,19 @@ Page({
    */
   loadUserInfo: function() {
     var that = this;
-    soldirerinfo("?openid=" + that.data.openId, false)
+    qrySoldirerinfo("?openid=" + that.data.openId, true)
       .then(result => {
         if (result.resCode == "00000") {
-
+          // if (utils.isEmpty(result.data)) {
+          //   wx.navigateTo({
+          //     url: '../collect/index',
+          //   })
+          // } else {
+          //   app.showToastError("您已经填写过信息,请勿重复填写!")
+          // }
+          wx.navigateTo({
+            url: '../collect/index',
+          })
         } else {
           app.showToastError(result.resInfo)
         }

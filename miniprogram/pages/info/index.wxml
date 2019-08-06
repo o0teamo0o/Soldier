@@ -7,6 +7,7 @@
     <view class="paragraph {{ isShowAnimation ? 'show-paragraph' : '' }}">
       <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;军蒂企业管理集团，简称军地集团，是按现代企业运作机制，负责全国退役士兵的就业创业发展工作，是整合军地资源全方位服务全国退役士兵的唯一企业性质实体机构。</text>
     </view>
+    <button class="btn input {{ isShowAnimation ? 'show-btn' : '' }}" catchtap="onBack">回到首页</button>
   </view>
   <image class="img-land {{ isShowAnimation ? 'show-land' : '' }}" src="../../images/icon_land.png" mode="widthFix" />
 </view>

@@ -4,13 +4,17 @@ var dateUtil = require('../../libs/dateUtil.js');
 var utils = require('../../libs/util.js');
 import Notify from '../../components/notify/notify.js';
 
+import {
+  insertSoldirerinfo, //保存用户信息
+} from "../../libs/API";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    sexIndex: 0,
+    sexIndex: 1,
     birthdayStartDate: null,
     birthdayEndDate: null,
     areas: ["请选择您的籍贯", "北京", "天津", "河北", "山西", "内蒙古", "辽宁", "吉林", "黑龙江", "上海", "江苏", "浙江", "安徽", "福建", "江西", "山东", "河南", "湖北", "湖南", "广东", "广西", "海南", "重庆", "四川", "贵州", "云南", "西藏", "陕西", "甘肃", "青海", "宁夏", "新疆", "台湾", "香港", "澳门", "国外"],
@@ -31,6 +35,12 @@ Page({
     isShowWorkCityDialog: false,
     workCity: null, //意向城市
     isShowUserInfoDialog: true,
+    educationUps: ["请选择", "专科", "本科", "硕士", "博士", "否"],
+    educationUpIndex: 0,
+    skills: ["请选择", "职业技能培训", "岗前培训", "否"],
+    skillIndex: 0,
+    entrepreneurships: ["请选择", "项目需求", "资金需求", "政策需求", "否"],
+    entrepreneurshipIndex: 0,
   },
 
   /**
@@ -167,6 +177,40 @@ Page({
       app.showToastError("请先完善意向城市信息!")
       return;
     }
+    if (utils.isEmpty(that.data.userInfo.sfyxltsxq)) {
+      app.showToastError("请先完善学历提升需求信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.sfyjnpxxq)) {
+      app.showToastError("请先完善技能培训需求信息!")
+      return;
+    }
+    if (utils.isEmpty(that.data.userInfo.sfycyxq)) {
+      app.showToastError("请先完善创业需求信息!")
+      return;
+    }
+
+    //合并地址
+    that.data.userInfo.tuiyishizhudi = that.data.userInfo.tuiyishizhudi + that.data.userInfo.armyAddressInfo;
+
+    that.data.userInfo.xianjuzhudi = that.data.userInfo.xianjuzhudi + that.data.userInfo.liveAddressInfo;
+
+    insertSoldirerinfo(that.data.userInfo, true)
+      .then(result => {
+        if (result.resCode == "00000") {
+          if (utils.isEmpty(result.data)) {
+            wx.redirectTo({
+              url: '../info/index',
+            })
+          }
+        } else {
+          app.showToastError(result.resInfo)
+        }
+      }).catch(e => {
+        if (!utils.isEmpty(e.errMsg)) {
+          app.showToastError(e.errMsg)
+        }
+      })
   },
 
   /**
@@ -240,7 +284,11 @@ Page({
    */
   bindAreaChange: function(e) {
     var that = this;
-    that.data.userInfo.jiguang = that.data.areas[e.detail.value];
+    if (e.detail.value == 0) {
+      that.data.userInfo.jiguang = "";
+    } else {
+      that.data.userInfo.jiguang = that.data.areas[e.detail.value];
+    }
     this.setData({
       areaIndex: e.detail.value
     })
@@ -252,9 +300,64 @@ Page({
    */
   bindEducationChange: function(e) {
     var that = this;
-    that.data.userInfo.xueli = that.data.educations[e.detail.value];
+    if (e.detail.value == 0) {
+      that.data.userInfo.xueli = "";
+    } else {
+      that.data.userInfo.xueli = that.data.educations[e.detail.value];
+    }
     this.setData({
       educationIndex: e.detail.value
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 学历提升需求
+   */
+  bindEducationUpChange: function(e) {
+    var that = this;
+    if (e.detail.value == 0) {
+      that.data.userInfo.sfyxltsxq = "";
+    } else if (e.detail.value != that.data.educationUps.length - 1) {
+      that.data.userInfo.sfyxltsxq = e.detail.value;
+    } else {
+      that.data.userInfo.sfyxltsxq = "0";
+    }
+    this.setData({
+      educationUpIndex: e.detail.value
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  /**
+   * 技能培训需求
+   */
+  bindSkillChange: function(e) {
+    var that = this;
+    if (e.detail.value == 0) {
+      that.data.userInfo.sfyjnpxxq = "";
+    } else if (e.detail.value != that.data.skills.length - 1) {
+      that.data.userInfo.sfyjnpxxq = e.detail.value;
+    } else {
+      that.data.userInfo.sfyjnpxxq = "0";
+    }
+    this.setData({
+      skillIndex: e.detail.value
+    })
+    console.error("user:", that.data.userInfo)
+  },
+
+  bindEntrepreneurshipChange: function(e) {
+    var that = this;
+    if (e.detail.value == 0) {
+      that.data.userInfo.sfycyxq = "";
+    } else if (e.detail.value != that.data.entrepreneurships.length - 1) {
+      that.data.userInfo.sfycyxq = e.detail.value;
+    } else {
+      that.data.userInfo.sfycyxq = "0";
+    }
+    this.setData({
+      entrepreneurshipIndex: e.detail.value
     })
     console.error("user:", that.data.userInfo)
   },
@@ -303,7 +406,8 @@ Page({
     var that = this;
     that.data.userInfo.tuiwushijian = e.detail.value
     this.setData({
-      leaveDate: e.detail.value
+      leaveDate: e.detail.value,
+      intoEndDate: e.detail.value
     })
     console.error("user:", that.data.userInfo)
   },
