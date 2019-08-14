@@ -58,11 +58,11 @@ Page({
     that.data.userInfo.chushengnianyue = "请选择您的出生日期";
     that.data.userInfo.sfdaxueshengruwu = "1";
 
-    that.data.birthdayStartDate = dateUtil.fromToday(-36500, "-"); //100岁
-    that.data.birthdayEndDate = dateUtil.fromToday(-5110, "-"); //14岁
+    that.data.birthdayStartDate = dateUtil.fromToday(-43800, "-"); //100岁
+    that.data.birthdayEndDate = dateUtil.fromToday(0, "-"); //14岁
 
     that.data.intoEndDate = dateUtil.fromToday(0, "-");
-    that.data.intoStartDate = dateUtil.fromToday(-21900, "-"); // 60岁
+    that.data.intoStartDate = dateUtil.fromToday(-43800, "-"); // 100岁
 
     that.setData({
       birthdayStartDate: that.data.birthdayStartDate,
@@ -572,10 +572,4 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

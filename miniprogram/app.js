@@ -7,8 +7,8 @@ App({
     userInfo: {}, //微信用户信息
     isDebug: true,
     showLog: true,
-    debugPath: 'http://47.98.59.186/',
-    releasePath: 'http://47.98.59.186/',
+    debugPath: 'https://jd.yuexintec.com/',
+    releasePath: 'https://jd.yuexintec.com/',
   },
 
   /**
