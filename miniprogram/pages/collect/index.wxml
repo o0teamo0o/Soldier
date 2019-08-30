@@ -34,7 +34,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">微信号</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的微信号" value="{{userInfo.weixin}}" bindinput="onInputWeixinListener" />
@@ -42,7 +42,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">QQ号</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的QQ号" value="{{userInfo.qq}}" bindinput="onInputQQListener" maxlength="11" />
@@ -50,7 +50,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpIDPage">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">身份证号</text>
           <view class="flex-1" />
           <input class="value" value="{{userInfo.shenfenzheng}}" placeholder="请输入您的身份证号" disabled="true" />
@@ -70,7 +70,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">身高</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的身高(厘米)" value="{{userInfo.shengao}}" bindinput="onInputShengaoListener" maxlength="3" type="number" />
@@ -78,7 +78,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">体重</text>
           <view class="flex-1" />
           <input class="value" maxlength="5" placeholder="请输入您的体重(千克)" value="{{userInfo.tizhong}}" bindinput="onInputTizhongListener" type="number" />
@@ -86,7 +86,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">籍贯</text>
           <view class="flex-1" />
           <picker class="value" bindchange="bindAreaChange" value="{{userInfo.jiguang}}" range="{{areas}}">
@@ -98,7 +98,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">学历</text>
           <view class="flex-1" />
           <picker class="value" bindchange="bindEducationChange" value="{{educationIndex}}" range="{{educations}}">
@@ -110,7 +110,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">是否大学生入伍</text>
           <view class="flex-1" />
           <view class='value'>
@@ -121,7 +121,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="0">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">在部队专业</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的专业" value="{{userInfo.buduizhuanye}}" disabled="true" />
@@ -129,7 +129,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="1">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">在部队特长</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的特长" value="{{userInfo.buduitechang}}" disabled="true" />
@@ -137,7 +137,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="2">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">退役时军种</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您退役时军种" value="{{userInfo.tuiyishijunzhong}}" disabled="true" />
@@ -145,7 +145,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="showArmyAddressPickerView">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">退役时驻地</text>
           <view class="flex-1" />
           <input class="value" placeholder="请选择退役时驻地" value="{{armyAddress}}" disabled="true" />
@@ -158,7 +158,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">入伍时间</text>
           <view class="flex-1" />
           <picker class="value" mode="date" value="{{intoDate}}" start="{{intoStartDate}}" end="{{intoEndDate}}" bindchange="bindIntoDateChange">
@@ -170,7 +170,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">退役时间</text>
           <view class="flex-1" />
           <picker class="value" mode="date" value="{{leaveDate}}" start="{{leaveStartDate}}" end="{{leaveEndDate}}" bindchange="bindLeaveDateChange">
@@ -182,7 +182,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">军衔</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的军衔" value="{{userInfo.junxian}}" bindinput="onInputRankListener" maxlength="50" />
@@ -190,7 +190,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="showLiveAddressPickerView">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">现居住地</text>
           <view class="flex-1" />
           <input class="value" placeholder="请选择入您的现居地" value="{{liveAddress}}" disabled="true" />
@@ -203,7 +203,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="jumpExtendPage" data-type="3">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">意向职业</text>
           <view class="flex-1" />
           <input class="value" placeholder="请输入您的意向职业" value="{{userInfo.yixiangzhiye}}" disabled="true" />
@@ -211,7 +211,7 @@
         </view>
         <view class="line" />
         <view class="item-layout" hover-class="click-hover" catchtap="showWorkCityPickerView">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">意向城市</text>
           <view class="flex-1" />
           <input class="value" placeholder="请选择您的意向城市" value="{{workCity}}" disabled="true" />
@@ -219,7 +219,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">是否有学历提升需求</text>
           <view class="flex-1" />
           <picker class="value" bindchange="bindEducationUpChange" value="{{educationUps[educationUpIndex]}}" range="{{educationUps}}">
@@ -231,7 +231,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">是否有技能培训需求</text>
           <view class="flex-1" />
           <picker class="value" bindchange="bindSkillChange" value="{{skills[skillIndex]}}" range="{{skills}}">
@@ -243,7 +243,7 @@
         </view>
         <view class="line" />
         <view class="item-layout">
-          <view class="mark" />
+          <view class="mark1" />
           <text class="key">是否有创业需求</text>
           <view class="flex-1" />
           <picker class="value" bindchange="bindEntrepreneurshipChange" value="{{entrepreneurships[entrepreneurshipIndex]}}" range="{{entrepreneurships}}">

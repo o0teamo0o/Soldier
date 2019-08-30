@@ -5,8 +5,8 @@ App({
 
   globalData: {
     userInfo: {}, //微信用户信息
-    isDebug: true,
-    showLog: true,
+    isDebug: false,
+    showLog: false,
     debugPath: 'https://jd.yuexintec.com/',
     releasePath: 'https://jd.yuexintec.com/',
   },

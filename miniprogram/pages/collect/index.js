@@ -98,102 +98,82 @@ Page({
       return;
     }
     if (utils.isEmpty(that.data.userInfo.weixin)) {
-      app.showToastError("请先完善微信号!")
-      return;
+      that.data.userInfo.weixin = "";
     }
     if (utils.isEmpty(that.data.userInfo.qq)) {
-      app.showToastError("请先完善QQ号!")
-      return;
+      that.data.userInfo.qq = "";
     }
     if (utils.isEmpty(that.data.userInfo.shenfenzheng)) {
-      app.showToastError("请先完善身份证信息!")
-      return;
+      that.data.userInfo.shenfenzheng = "";
     }
-    if (utils.isEmpty(that.data.userInfo.chushengnianyue)) {
+    if (that.data.userInfo.chushengnianyue == "请选择您的出生日期") {
       app.showToastError("请先完善出生年月信息!")
       return;
     }
     if (utils.isEmpty(that.data.userInfo.shengao)) {
-      app.showToastError("请先完善身高信息!")
-      return;
+      that.data.userInfo.shengao = "";
     }
     if (utils.isEmpty(that.data.userInfo.tizhong)) {
-      app.showToastError("请先完善体重信息!")
-      return;
+      that.data.userInfo.tizhong = "";
     }
     if (utils.isEmpty(that.data.userInfo.jiguang)) {
-      app.showToastError("请先完善籍贯信息!")
-      return;
+      that.data.userInfo.jiguang = "";
     }
     if (utils.isEmpty(that.data.userInfo.xueli)) {
-      app.showToastError("请先完善学历信息!")
-      return;
+      that.data.userInfo.xueli = "";
     }
     if (utils.isEmpty(that.data.userInfo.buduizhuanye)) {
-      app.showToastError("请先完善部队专业信息!")
-      return;
+      that.data.userInfo.buduizhuanye = "";
     }
     if (utils.isEmpty(that.data.userInfo.buduitechang)) {
-      app.showToastError("请先完善部队特长信息!")
-      return;
+      that.data.userInfo.buduitechang = "";
     }
     if (utils.isEmpty(that.data.userInfo.tuiyishijunzhong)) {
-      app.showToastError("请先完善退役时军种信息!")
-      return;
+      that.data.userInfo.tuiyishijunzhong = "";
     }
     if (utils.isEmpty(that.data.userInfo.tuiyishizhudi)) {
-      app.showToastError("请先完善退役时驻地信息!")
-      return;
+      that.data.userInfo.tuiyishizhudi = "";
     }
     if (utils.isEmpty(that.data.userInfo.armyAddressInfo)) {
-      app.showToastError("请先完善退役时驻地详细地址信息!")
-      return;
+      that.data.userInfo.armyAddressInfo = "";
     }
     if (utils.isEmpty(that.data.userInfo.ruwushijian)) {
-      app.showToastError("请先完善入伍时间信息!")
-      return;
+      that.data.userInfo.armyAddressInfo = "";
     }
     if (utils.isEmpty(that.data.userInfo.tuiwushijian)) {
-      app.showToastError("请先完善退伍时间信息!")
-      return;
+      that.data.userInfo.tuiwushijian = "";
     }
     if (utils.isEmpty(that.data.userInfo.junxian)) {
-      app.showToastError("请先完善军衔信息!")
-      return;
+      that.data.userInfo.junxian = "";
     }
     if (utils.isEmpty(that.data.userInfo.xianjuzhudi)) {
-      app.showToastError("请先完善现居住地信息!")
-      return;
+      that.data.userInfo.xianjuzhudi = "";
     }
     if (utils.isEmpty(that.data.userInfo.liveAddressInfo)) {
-      app.showToastError("请先完善现居住地详细地址信息!")
-      return;
+      that.data.userInfo.liveAddressInfo = "";
     }
     if (utils.isEmpty(that.data.userInfo.yixiangzhiye)) {
-      app.showToastError("请先完善意向职业信息!")
-      return;
+      that.data.userInfo.yixiangzhiye = "";
     }
     if (utils.isEmpty(that.data.userInfo.yixiangchengshi)) {
-      app.showToastError("请先完善意向城市信息!")
-      return;
+      that.data.userInfo.yixiangchengshi = "";
     }
     if (utils.isEmpty(that.data.userInfo.sfyxltsxq)) {
-      app.showToastError("请先完善学历提升需求信息!")
-      return;
+      that.data.userInfo.sfyxltsxq = "";
     }
     if (utils.isEmpty(that.data.userInfo.sfyjnpxxq)) {
-      app.showToastError("请先完善技能培训需求信息!")
-      return;
+      that.data.userInfo.sfyjnpxxq = "";
     }
     if (utils.isEmpty(that.data.userInfo.sfycyxq)) {
-      app.showToastError("请先完善创业需求信息!")
-      return;
+      that.data.userInfo.sfycyxq = "";
     }
 
     //合并地址
     that.data.userInfo.tuiyishizhudi = that.data.userInfo.tuiyishizhudi + that.data.userInfo.armyAddressInfo;
 
     that.data.userInfo.xianjuzhudi = that.data.userInfo.xianjuzhudi + that.data.userInfo.liveAddressInfo;
+
+    console.error("info:", that.data.userInfo)
 
     insertSoldirerinfo(that.data.userInfo, true)
       .then(result => {

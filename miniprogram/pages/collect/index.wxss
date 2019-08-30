@@ -21,6 +21,14 @@
   margin-right: 15rpx;
 }
 
+.item-frame-layout>.item-layout>.mark1 {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 15rpx;
+}
+
 .item-frame-layout>.item-layout>.key {
   color: #333;
   width: 230rpx;
