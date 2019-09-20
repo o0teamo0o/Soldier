@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "toast": "/components/notify/index"
+    "toast": "/components/notify/index",
+    "popup": "/components/popup/index"
   }
 }

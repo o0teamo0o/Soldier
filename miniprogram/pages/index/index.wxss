@@ -188,3 +188,22 @@
   transform: translateY(0);
   opacity: 1;
 }
+
+.job-layout {
+  background-color: white;
+}
+
+.job-layout>.title {
+  line-height: 100rpx;
+  text-align: center;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.job-layout>.item-layout {
+  line-height: 100rpx;
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+}

@@ -7,10 +7,21 @@
     <image class="img-logo {{ isShowAnimation ? 'show-logo' : '' }}" src="../../images/icon_logo.png" mode="widthFix" />
     <view class="big-title {{ isShowAnimation ? 'show-title' : '' }}">退伍不褪色，转业不转志</view>
     <view class="small-title {{ isShowAnimation ? 'show-title' : '' }}">协助推荐退役士兵就业</view>
-    <button class="btn input {{ isShowAnimation ? 'show-btn' : '' }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">信息填报</button>
+    <button class="btn input {{ isShowAnimation ? 'show-btn' : '' }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">就业推荐</button>
     <button class="btn info {{ isShowAnimation ? 'show-btn' : '' }}" catchtap="jumpInfoPage">军地集团</button>
   </view>
   <image class="img-tiananmen {{ isShowAnimation ? 'show-tiananmen' : '' }}" src="../../images/icon_tiananmen.png" mode="widthFix" />
   <image class="img-column {{ isShowAnimation ? 'show-column' : '' }}" src="../../images/icon_column.png" mode="widthFix" />
   <image class="img-land {{ isShowAnimation ? 'show-land' : '' }}" src="../../images/icon_land.png" mode="widthFix" />
 </view>
+
+<popup show="{{isShowJobDialog}}" position="bottom" z-index="100" bind:close="onJobDialogClose">
+  <view class="job-layout">
+    <view class="title">请选择意向就业类别</view>
+    <view class="line" />
+    <block wx:for="{{jobList}}" wx:key="forkey">
+      <view class="item-layout" hover-class="click-hover" catchtap="jumpInputPage" data-info="{{item}}">{{item.name}}</view>
+      <view class="line" />
+    </block>
+  </view>
+</popup>

@@ -14,7 +14,33 @@ Page({
    */
   data: {
     isShowAnimation: false, //是否显示红旗动画
+    isShowJobDialog: false,
     openId: null,
+    jobList: [{
+        "id": 0,
+        "name": "安保类"
+      },
+      {
+        "id": 1,
+        "name": "技术类"
+      },
+      {
+        "id": 2,
+        "name": "行政管理类"
+      },
+      {
+        "id": 3,
+        "name": "司机类"
+      },
+      {
+        "id": 4,
+        "name": "销售类"
+      },
+      {
+        "id": 5,
+        "name": "其他"
+      },
+    ]
   },
 
   /**
@@ -66,8 +92,8 @@ Page({
       .then(result => {
         if (result.resCode == "00000") {
           if (utils.isEmpty(result.data)) {
-            wx.navigateTo({
-              url: '../collect/index',
+            that.setData({
+              isShowJobDialog: true,
             })
           } else {
             app.showToastError("您已经填写过信息,请勿重复填写!")
@@ -82,12 +108,34 @@ Page({
       })
   },
 
+  /**
+   * 类别
+   */
+  jumpInputPage: function (e) {
+    var that = this;
+
+    that.setData({
+      isShowJobDialog: false,
+    })
+
+    wx.navigateTo({
+      url: '../collect/index',
+    })
+  },
+
   jumpInfoPage: function() {
     var that = this;
     wx.navigateTo({
       url: '../introduction/index',
     })
+  },
 
+  onJobDialogClose: function () {
+    var that = this;
+
+    that.setData({
+      isShowJobDialog: false,
+    })
   },
 
   /**
